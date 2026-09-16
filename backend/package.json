@@ -4,7 +4,7 @@
   "description": "AI-Powered Jira Project Monitoring System Backend",
   "private": true,
   "scripts": {
-    "build": "npx prisma generate && npx nest build",
+    "build": "cross-env DATABASE_URL=\"postgresql://postgres:postgres@localhost:5432/spm_db\" prisma generate && nest build",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
@@ -33,6 +33,7 @@
     "bcrypt": "^5.1.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "openai": "^4.47.1",
     "passport": "^0.7.0",
