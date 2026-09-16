@@ -1,0 +1,493 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  PROJECT_MANAGER
+  DEVELOPER
+  QA_ENGINEER
+  VIEWER
+}
+
+enum CanonicalStatus {
+  TODO
+  DEVELOPMENT
+  QA
+  UAT
+  MASTER
+  DONE
+}
+
+enum AlertSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum GateResult {
+  PASS
+  FAIL
+  NOT_AVAILABLE
+}
+
+model User {
+  id           String        @id @default(uuid())
+  email        String        @unique
+  name         String
+  passwordHash String
+  role         Role          @default(PROJECT_MANAGER)
+  jiraAccountId String?
+  avatarUrl    String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  assignedIssues Issue[]     @relation("AssigneeRelation")
+  reportedIssues Issue[]     @relation("ReporterRelation")
+  comments       Comment[]
+  worklogs       Worklog[]
+  activities     Activity[]
+  alerts         Alert[]
+  notifications  Notification[]
+  conversations  AIConversation[]
+}
+
+model JiraConnection {
+  id           String    @id @default(uuid())
+  domain       String    // e.g. "company.atlassian.net"
+  email        String    // Jira admin email
+  apiToken     String    // Jira API Token or OAuth token
+  projectKey   String    @default("BSB")
+  status       String    @default("CONFIGURED") // CONFIGURED, CONNECTED, ERROR
+  lastSyncAt   DateTime?
+  errorMessage String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model JiraProject {
+  id          String   @id @default(uuid())
+  jiraId      String   @unique
+  key         String   @unique // e.g. "BSB"
+  name        String
+  leadName    String?
+  projectType String?
+  avatarUrl   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  boards      JiraBoard[]
+  issues      Issue[]
+  statuses    IssueStatus[]
+}
+
+model JiraBoard {
+  id        String   @id @default(uuid())
+  jiraId    String   @unique
+  name      String
+  type      String   // scrum, kanban
+  projectId String
+  project   JiraProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sprints   Sprint[]
+}
+
+model Sprint {
+  id         String    @id @default(uuid())
+  jiraId     String    @unique
+  name       String
+  state      String    // active, closed, future
+  startDate  DateTime?
+  endDate    DateTime?
+  completeDate DateTime?
+  goal       String?
+  boardId    String?
+  board      JiraBoard? @relation(fields: [boardId], references: [id], onDelete: SetNull)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  issues     Issue[]
+}
+
+model IssueStatus {
+  id              String          @id @default(uuid())
+  jiraId          String          @unique
+  name            String          // original Jira status name (e.g. "In Progress", "Ready for Test")
+  canonicalStatus CanonicalStatus @default(TODO)
+  colorCategory   String?
+  projectId       String?
+  project         JiraProject?    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  issues          Issue[]
+}
+
+model Issue {
+  id                     String          @id @default(uuid())
+  jiraId                 String          @unique
+  key                    String          @unique // e.g. "BSB-2771", "BSB-2652"
+  summary                String
+  description            String?
+  issueType              String          @default("Task")
+  priority               String          @default("Medium")
+  storyPoints            Float?
+  originalEstimateSec    Int?
+  timeSpentSec           Int?            @default(0)
+  dueDate                DateTime?
+  resolution             String?
+  resolvedAt             DateTime?
+  isMonitoredPriority    Boolean         @default(false) // true for BSB-2771, 2652, 2559, 2606, 2690
+  labels                 String[]        @default([])
+  components             String[]        @default([])
+  linkedIssueKeys        String[]        @default([])
+
+  canonicalStatus        CanonicalStatus @default(TODO)
+  statusId               String?
+  status                 IssueStatus?    @relation(fields: [statusId], references: [id], onDelete: SetNull)
+
+  projectId              String?
+  project                JiraProject?    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  sprintId               String?
+  sprint                 Sprint?         @relation(fields: [sprintId], references: [id], onDelete: SetNull)
+
+  assigneeId             String?
+  assignee               User?           @relation("AssigneeRelation", fields: [assigneeId], references: [id], onDelete: SetNull)
+  assigneeName           String?
+  assigneeEmail          String?
+  assigneeAvatarUrl      String?
+
+  reporterId             String?
+  reporter               User?           @relation("ReporterRelation", fields: [reporterId], references: [id], onDelete: SetNull)
+  reporterName           String?
+
+  lastMeaningfulActivityAt DateTime?
+  lastJiraActivityAt      DateTime?
+  lastCommitAt           DateTime?
+  lastCommentAt          DateTime?
+  lastWorklogAt          DateTime?
+  lastStatusChangeAt     DateTime?
+  lastPRActivityAt       DateTime?
+
+  createdAt              DateTime        @default(now())
+  updatedAt              DateTime        @updatedAt
+
+  activities             Activity[]
+  comments               Comment[]
+  worklogs               Worklog[]
+  attachments            Attachment[]
+  gitCommits             GitCommit[]
+  pullRequests           PullRequest[]
+  qaValidations          QAValidation[]
+  uatValidations         UATValidation[]
+  alerts                 Alert[]
+  riskScores             RiskScore[]
+
+  @@index([key])
+  @@index([canonicalStatus])
+  @@index([isMonitoredPriority])
+}
+
+model Activity {
+  id          String   @id @default(uuid())
+  issueId     String
+  issue       Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  type        String   // STATUS_CHANGE, COMMENT, COMMIT, PR, REVIEW, WORKLOG, ATTACHMENT, DEV_UPDATE
+  title       String
+  description String?
+  metadata    Json?    // raw payload or detailed properties
+  timestamp   DateTime @default(now())
+  actorName   String?
+  actorEmail  String?
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+
+  @@index([issueId, timestamp])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  jiraId    String?  @unique
+  body      String
+  author    String
+  authorEmail String?
+  authorAvatarUrl String?
+  timestamp DateTime @default(now())
+  issueId   String
+  issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Worklog {
+  id          String   @id @default(uuid())
+  jiraId      String?  @unique
+  timeSpentSec Int
+  timeSpentFormatted String?
+  comment     String?
+  author      String
+  authorEmail String?
+  startedAt   DateTime @default(now())
+  issueId     String
+  issue       Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt   DateTime @default(now())
+}
+
+model Attachment {
+  id        String   @id @default(uuid())
+  jiraId    String?  @unique
+  filename  String
+  size      Int
+  mimeType  String
+  url       String
+  author    String?
+  timestamp DateTime @default(now())
+  issueId   String
+  issue     Issue    @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model GitRepository {
+  id          String       @id @default(uuid())
+  provider    String       // github, gitlab, bitbucket
+  name        String
+  fullName    String       // e.g. "org/repo"
+  url         String
+  defaultBranch String     @default("main")
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  commits     GitCommit[]
+  pullRequests PullRequest[]
+}
+
+model GitCommit {
+  id           String        @id @default(uuid())
+  hash         String        @unique
+  shortHash    String
+  message      String
+  authorName   String
+  authorEmail  String
+  branch       String?
+  url          String?
+  timestamp    DateTime
+  repositoryId String?
+  repository   GitRepository? @relation(fields: [repositoryId], references: [id], onDelete: SetNull)
+  issueId      String?
+  issue        Issue?        @relation(fields: [issueId], references: [id], onDelete: SetNull)
+  createdAt    DateTime      @default(now())
+
+  @@index([hash])
+  @@index([issueId])
+}
+
+model PullRequest {
+  id           String        @id @default(uuid())
+  prNumber     Int
+  title        String
+  description  String?
+  status       String        // open, closed, merged
+  sourceBranch String
+  targetBranch String
+  url          String
+  authorName   String
+  authorEmail  String?
+  isDraft      Boolean       @default(false)
+  mergedAt     DateTime?
+  closedAt     DateTime?
+  repositoryId String?
+  repository   GitRepository? @relation(fields: [repositoryId], references: [id], onDelete: SetNull)
+  issueId      String?
+  issue        Issue?        @relation(fields: [issueId], references: [id], onDelete: SetNull)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  reviews      PullRequestReview[]
+
+  @@unique([repositoryId, prNumber])
+}
+
+model PullRequestReview {
+  id            String      @id @default(uuid())
+  reviewerName  String
+  state         String      // APPROVED, CHANGES_REQUESTED, COMMENTED, DISMISSED
+  body          String?
+  submittedAt   DateTime    @default(now())
+  pullRequestId String
+  pullRequest   PullRequest @relation(fields: [pullRequestId], references: [id], onDelete: Cascade)
+}
+
+model QARule {
+  id          String   @id @default(uuid())
+  key         String   @unique // e.g. "GIT_COMMIT", "PULL_REQUEST", "CODE_REVIEW", "UNIT_TEST", etc.
+  name        String
+  description String
+  isRequired  Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model QAValidation {
+  id                   String     @id @default(uuid())
+  issueId              String
+  issue                Issue      @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  gitCommitResult      GateResult @default(NOT_AVAILABLE)
+  gitCommitDetail      String?
+  pullRequestResult    GateResult @default(NOT_AVAILABLE)
+  pullRequestDetail    String?
+  codeReviewResult     GateResult @default(NOT_AVAILABLE)
+  codeReviewDetail     String?
+  unitTestResult       GateResult @default(NOT_AVAILABLE)
+  unitTestDetail       String?
+  testCaseResult       GateResult @default(NOT_AVAILABLE)
+  testCaseDetail       String?
+  documentationResult  GateResult @default(NOT_AVAILABLE)
+  documentationDetail  String?
+  acceptanceCriteriaResult GateResult @default(NOT_AVAILABLE)
+  acceptanceCriteriaDetail String?
+  developerUpdateResult    GateResult @default(NOT_AVAILABLE)
+  developerUpdateDetail    String?
+  overallResult        GateResult @default(NOT_AVAILABLE)
+  summary              String?
+  validatedAt          DateTime   @default(now())
+  createdAt            DateTime   @default(now())
+
+  @@index([issueId, validatedAt])
+}
+
+model UATValidation {
+  id                 String     @id @default(uuid())
+  issueId            String
+  issue              Issue      @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  qaCompletedResult  GateResult @default(NOT_AVAILABLE)
+  testEvidenceResult GateResult @default(NOT_AVAILABLE)
+  bugsResolvedResult GateResult @default(NOT_AVAILABLE)
+  qaCommentResult    GateResult @default(NOT_AVAILABLE)
+  acResult           GateResult @default(NOT_AVAILABLE)
+  attachmentsResult  GateResult @default(NOT_AVAILABLE)
+  overallResult      GateResult @default(NOT_AVAILABLE) // UAT READY or UAT BLOCKED
+  summary            String?
+  validatedAt        DateTime   @default(now())
+  createdAt          DateTime   @default(now())
+
+  @@index([issueId, validatedAt])
+}
+
+model Alert {
+  id         String        @id @default(uuid())
+  issueId    String?
+  issue      Issue?        @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  type       String        // INACTIVITY_48H, INACTIVITY_72H, BLOCKED, OVERDUE, QA_FAILED, UAT_BLOCKED, etc.
+  severity   AlertSeverity @default(MEDIUM)
+  title      String
+  message    String
+  source     String        // JIRA, GIT, QA_GATE, INACTIVITY_ENGINE
+  isResolved Boolean       @default(false)
+  resolvedAt DateTime?
+  userId     String?
+  user       User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  @@index([issueId, isResolved])
+  @@index([severity])
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  message   String
+  type      String   // ALERT, SYNC, GATE, AI_REPORT
+  link      String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model RiskScore {
+  id           String    @id @default(uuid())
+  issueId      String
+  issue        Issue     @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  score        Int       // 0 - 100
+  level        RiskLevel @default(LOW)
+  factors      Json      // array of reasons { factor, weight, description }
+  calculatedAt DateTime  @default(now())
+
+  @@index([issueId, calculatedAt])
+}
+
+model AIReport {
+  id                 String   @id @default(uuid())
+  title              String
+  reportDate         DateTime @default(now())
+  sprintProgress     Json
+  activeCardsCount   Int
+  completedCardsCount Int
+  devCardsCount      Int
+  qaCardsCount       Int
+  uatCardsCount      Int
+  masterCardsCount   Int
+  doneCardsCount     Int
+  blockedCardsCount  Int
+  inactiveCardsCount Int
+  highRiskCardsCount Int
+  topRisks           Json     // Top 5 risks
+  recommendedActions Json     // Recommended PM actions
+  aiSummary          String
+  createdAt          DateTime @default(now())
+}
+
+model AIConversation {
+  id        String      @id @default(uuid())
+  title     String      @default("PM Assistant Chat")
+  userId    String?
+  user      User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  messages  AIMessage[]
+}
+
+model AIMessage {
+  id             String         @id @default(uuid())
+  conversationId String
+  conversation   AIConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role           String         // user, assistant, system, tool
+  content        String
+  toolCalls      Json?
+  toolResult     Json?
+  createdAt      DateTime       @default(now())
+
+  @@index([conversationId, createdAt])
+}
+
+model WebhookEvent {
+  id        String   @id @default(uuid())
+  source    String   // JIRA, GITHUB, GITLAB, BITBUCKET
+  eventType String
+  payload   Json
+  processed Boolean  @default(false)
+  error     String?
+  createdAt DateTime @default(now())
+}
