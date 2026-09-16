@@ -4,7 +4,7 @@
   "description": "AI-Powered Jira Project Monitoring System Backend",
   "private": true,
   "scripts": {
-    "build": "nest build",
+    "build": "npx prisma generate && nest build",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
