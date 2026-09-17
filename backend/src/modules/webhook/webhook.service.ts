@@ -17,13 +17,17 @@ export class WebhookService {
     const webhookEvent = payload.webhookEvent || 'unknown';
     this.logger.log(`Received Jira webhook: ${webhookEvent}`);
 
-    await this.prisma.webhookEvent.create({
-      data: {
-        source: 'JIRA',
-        eventType: webhookEvent,
-        payload,
-      },
-    });
+    try {
+      await this.prisma.webhookEvent.create({
+        data: {
+          source: 'JIRA',
+          eventType: webhookEvent,
+          payload,
+        },
+      });
+    } catch (e: any) {
+      this.logger.warn(`Could not save Jira webhook event to DB: ${e.message}`);
+    }
 
     // If issue updated or created
     if (payload.issue) {
@@ -52,13 +56,17 @@ export class WebhookService {
   async handleGitWebhook(provider: string, payload: any) {
     this.logger.log(`Received Git webhook from ${provider}`);
 
-    await this.prisma.webhookEvent.create({
-      data: {
-        source: provider.toUpperCase(),
-        eventType: 'GIT_EVENT',
-        payload,
-      },
-    });
+    try {
+      await this.prisma.webhookEvent.create({
+        data: {
+          source: provider.toUpperCase(),
+          eventType: 'GIT_EVENT',
+          payload,
+        },
+      });
+    } catch (e: any) {
+      this.logger.warn(`Could not save Git webhook event to DB: ${e.message}`);
+    }
 
     const results: any = { commits: [], pullRequests: [] };
 

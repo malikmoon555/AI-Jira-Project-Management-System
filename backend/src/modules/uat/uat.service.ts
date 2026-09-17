@@ -9,44 +9,54 @@ export class UATService {
   constructor(private prisma: PrismaService) {}
 
   async evaluateIssue(issueKey: string) {
-    const issue = await this.prisma.issue.findUnique({
-      where: { key: issueKey.toUpperCase() },
-      include: {
-        qaValidations: {
-          orderBy: { validatedAt: 'desc' },
-          take: 1,
+    let issue: any = null;
+    try {
+      issue = await this.prisma.issue.findUnique({
+        where: { key: issueKey.toUpperCase() },
+        include: {
+          qaValidations: {
+            orderBy: { validatedAt: 'desc' },
+            take: 1,
+          },
+          attachments: true,
+          comments: true,
         },
-        attachments: true,
-        comments: true,
-      },
-    });
+      });
+    } catch (e: any) {
+      this.logger.warn(`Prisma findUnique deferred in UATService for ${issueKey}: ${e.message}`);
+    }
 
     if (!issue) {
-      throw new Error(`Issue ${issueKey} not found`);
+      return {
+        issueId: issueKey,
+        overallResult: GateResult.NOT_AVAILABLE,
+        summary: `Issue ${issueKey} not found in database. Please run Jira Sync.`,
+        validatedAt: new Date(),
+      };
     }
 
     const failedReasons: string[] = [];
 
     // 1. QA completed
-    const latestQA = issue.qaValidations[0];
+    const latestQA = (issue.qaValidations || [])[0];
     const hasQACompleted = latestQA && latestQA.overallResult === GateResult.PASS;
     const qaCompletedResult = hasQACompleted ? GateResult.PASS : GateResult.FAIL;
     if (!hasQACompleted) failedReasons.push('QA Gate not passed or not verified');
 
     // 2. Test evidence
     const hasEvidence =
-      issue.attachments.length > 0 ||
-      issue.comments.some((c) => /test\s*(result|evidence|report|passed|screenshot)/i.test(c.body));
+      (issue.attachments || []).length > 0 ||
+      (issue.comments || []).some((c: any) => /test\s*(result|evidence|report|passed|screenshot)/i.test(c.body));
     const testEvidenceResult = hasEvidence ? GateResult.PASS : GateResult.FAIL;
     if (!hasEvidence) failedReasons.push('Missing QA test evidence');
 
     // 3. Bugs resolved (check comments/linked issues for open blockers)
-    const hasOpenBugs = issue.comments.some((c) => /bug\s*(reopened|failed|blocking)/i.test(c.body));
+    const hasOpenBugs = (issue.comments || []).some((c: any) => /bug\s*(reopened|failed|blocking)/i.test(c.body));
     const bugsResolvedResult = !hasOpenBugs ? GateResult.PASS : GateResult.FAIL;
     if (hasOpenBugs) failedReasons.push('Unresolved bugs or regression found in comments');
 
     // 4. QA comment
-    const hasQAComment = issue.comments.some((c) => /(qa\s*signoff|verified\s*by\s*qa|ready\s*for\s*uat)/i.test(c.body));
+    const hasQAComment = (issue.comments || []).some((c: any) => /(qa\s*signoff|verified\s*by\s*qa|ready\s*for\s*uat)/i.test(c.body));
     const qaCommentResult = hasQAComment ? GateResult.PASS : GateResult.FAIL;
     if (!hasQAComment) failedReasons.push('Missing QA sign-off comment');
 
@@ -57,8 +67,8 @@ export class UATService {
     if (!hasAC) failedReasons.push('Acceptance criteria missing from card');
 
     // 6. Required attachments
-    const attachmentsResult = issue.attachments.length > 0 ? GateResult.PASS : GateResult.FAIL;
-    if (issue.attachments.length === 0) failedReasons.push('No attachments found for UAT inspection');
+    const attachmentsResult = (issue.attachments || []).length > 0 ? GateResult.PASS : GateResult.FAIL;
+    if ((issue.attachments || []).length === 0) failedReasons.push('No attachments found for UAT inspection');
 
     const overallResult: GateResult = failedReasons.length === 0 ? GateResult.PASS : GateResult.FAIL;
     const summary =
@@ -66,46 +76,55 @@ export class UATService {
         ? 'UAT READY: All QA and acceptance criteria validated.'
         : `UAT BLOCKED: ${failedReasons.length} requirement(s) failed (${failedReasons.join(', ')}).`;
 
-    const validation = await this.prisma.uATValidation.create({
-      data: {
-        issueId: issue.id,
-        qaCompletedResult,
-        testEvidenceResult,
-        bugsResolvedResult,
-        qaCommentResult,
-        acResult,
-        attachmentsResult,
-        overallResult,
-        summary,
-      },
-    });
+    const valObj = {
+      issueId: issue.id,
+      qaCompletedResult,
+      testEvidenceResult,
+      bugsResolvedResult,
+      qaCommentResult,
+      acResult,
+      attachmentsResult,
+      overallResult,
+      summary,
+      validatedAt: new Date(),
+    };
 
-    return validation;
+    try {
+      return await this.prisma.uATValidation.create({ data: valObj });
+    } catch (e: any) {
+      this.logger.warn(`Could not save UATValidation to DB: ${e.message}`);
+    }
+
+    return valObj;
   }
 
   async getValidations(issueKey?: string) {
-    const where: any = {};
-    if (issueKey) {
-      const issue = await this.prisma.issue.findUnique({
-        where: { key: issueKey.toUpperCase() },
-      });
-      if (issue) where.issueId = issue.id;
-    }
-    return this.prisma.uATValidation.findMany({
-      where,
-      include: {
-        issue: {
-          select: {
-            key: true,
-            summary: true,
-            canonicalStatus: true,
-            assigneeName: true,
-            isMonitoredPriority: true,
+    try {
+      const where: any = {};
+      if (issueKey) {
+        const issue = await this.prisma.issue.findUnique({
+          where: { key: issueKey.toUpperCase() },
+        });
+        if (issue) where.issueId = issue.id;
+      }
+      return await this.prisma.uATValidation.findMany({
+        where,
+        include: {
+          issue: {
+            select: {
+              key: true,
+              summary: true,
+              canonicalStatus: true,
+              assigneeName: true,
+              isMonitoredPriority: true,
+            },
           },
         },
-      },
-      orderBy: { validatedAt: 'desc' },
-      take: 50,
-    });
+        orderBy: { validatedAt: 'desc' },
+        take: 50,
+      });
+    } catch (e: any) {
+      return [];
+    }
   }
 }

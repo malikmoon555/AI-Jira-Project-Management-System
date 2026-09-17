@@ -36,3 +36,5 @@ Thumbs.db
 
 # Tooling metadata
 .kilo/
+*.tsbuildinfo
+

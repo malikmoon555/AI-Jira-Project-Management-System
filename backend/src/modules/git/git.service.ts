@@ -136,43 +136,62 @@ export class GitService {
     }
 
     let repo = null;
-    if (data.repoName) {
-      repo = await this.prisma.gitRepository.findFirst({
-        where: { name: data.repoName },
+    const repoName = data.repoName || 'default-repo';
+    try {
+      repo = await this.prisma.gitRepository.upsert({
+        where: { id: repoName },
+        update: {},
+        create: {
+          id: repoName,
+          provider: 'github',
+          name: repoName,
+          fullName: repoName,
+          url: data.url || `https://github.com/${repoName}`,
+        },
       });
+    } catch (e: any) {
+      try {
+        repo = await this.prisma.gitRepository.findFirst({ where: { name: repoName } });
+      } catch (err: any) {}
     }
 
-    const pr = await this.prisma.pullRequest.upsert({
-      where: {
-        repositoryId_prNumber: {
-          repositoryId: repo?.id || 'default-repo',
-          prNumber: data.prNumber,
+    let pr: any = null;
+    try {
+      pr = await this.prisma.pullRequest.upsert({
+        where: {
+          repositoryId_prNumber: {
+            repositoryId: repo?.id || repoName,
+            prNumber: data.prNumber,
+          },
         },
-      },
-      update: {
-        title: data.title,
-        description: data.description,
-        status: data.status,
-        mergedAt: data.mergedAt,
-        closedAt: data.closedAt,
-        issueId: primaryIssueId,
-      },
-      create: {
-        prNumber: data.prNumber,
-        title: data.title,
-        description: data.description,
-        status: data.status,
-        sourceBranch: data.sourceBranch,
-        targetBranch: data.targetBranch,
-        url: data.url,
-        authorName: data.authorName,
-        authorEmail: data.authorEmail,
-        repositoryId: repo?.id,
-        issueId: primaryIssueId,
-        mergedAt: data.mergedAt,
-        closedAt: data.closedAt,
-      },
-    });
+        update: {
+          title: data.title,
+          description: data.description,
+          status: data.status,
+          mergedAt: data.mergedAt,
+          closedAt: data.closedAt,
+          issueId: primaryIssueId,
+        },
+        create: {
+          prNumber: data.prNumber,
+          title: data.title,
+          description: data.description,
+          status: data.status,
+          sourceBranch: data.sourceBranch,
+          targetBranch: data.targetBranch,
+          url: data.url,
+          authorName: data.authorName,
+          authorEmail: data.authorEmail,
+          repositoryId: repo?.id || repoName,
+          issueId: primaryIssueId,
+          mergedAt: data.mergedAt,
+          closedAt: data.closedAt,
+        },
+      });
+    } catch (dbErr: any) {
+      this.logger.warn(`Could not save PullRequest to DB: ${dbErr.message}`);
+      pr = { id: `pr-${data.prNumber}`, prNumber: data.prNumber, ...data };
+    }
 
     if (primaryIssueId) {
       const now = new Date();

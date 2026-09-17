@@ -3803,19 +3803,19 @@
       ],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "UAT",
+      "canonicalStatus": "DEVELOPMENT",
       "status": {
-        "name": "5) UAT",
-        "canonicalStatus": "UAT"
+        "name": "5.1) UAT - In Progress",
+        "canonicalStatus": "DEVELOPMENT"
       },
       "assigneeName": "Celeste Rush",
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Celeste Rush",
-      "lastJiraActivityAt": "2026-09-14T10:23:47.112Z",
-      "lastMeaningfulActivityAt": "2026-09-14T10:23:47.112Z",
+      "lastJiraActivityAt": "2026-09-16T08:11:05.279Z",
+      "lastMeaningfulActivityAt": "2026-09-16T08:11:05.279Z",
       "createdAt": "2026-08-17T09:51:19.328Z",
-      "updatedAt": "2026-09-14T10:23:47.112Z",
+      "updatedAt": "2026-09-16T08:11:05.279Z",
       "riskScores": [],
       "comments": [
         {
@@ -3949,7 +3949,7 @@
       ],
       "canonicalStatus": "UAT",
       "status": {
-        "name": "5.2) UAT - Pass",
+        "name": "5.5) UAT - Pass",
         "canonicalStatus": "UAT"
       },
       "assigneeName": "Celeste Rush",
@@ -4013,17 +4013,17 @@
       "linkedIssueKeys": [],
       "canonicalStatus": "UAT",
       "status": {
-        "name": "5) UAT",
+        "name": "5.4) UAT - Fail",
         "canonicalStatus": "UAT"
       },
       "assigneeName": "Celeste Rush",
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-10T06:29:32.817Z",
-      "lastMeaningfulActivityAt": "2026-09-10T06:29:32.817Z",
+      "lastJiraActivityAt": "2026-09-16T11:46:57.312Z",
+      "lastMeaningfulActivityAt": "2026-09-16T11:46:57.312Z",
       "createdAt": "2026-05-15T06:32:52.531Z",
-      "updatedAt": "2026-09-10T06:29:32.817Z",
+      "updatedAt": "2026-09-16T11:46:57.312Z",
       "riskScores": [],
       "comments": [
         {
@@ -4091,6 +4091,24 @@
           "body": "I have tested it on the develop environment, and it has now been merged into the UAT environment. Please test and verify it on your end. thanks",
           "author": "Mamoon Nadeem",
           "timestamp": "2026-08-31T11:21:55.288Z"
+        },
+        {
+          "id": "45962",
+          "body": "Playbook configured with one compliant device and one not compliant.  Only the non-compliant device was identified although both devices should have been identified.I received two emails rather than a single email for the results.  Please consolidate results into one email.Custom Report PDF is blank although when you click on ‘View’ the widgets are fully populated.cc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-09-16T09:35:24.484Z"
+        },
+        {
+          "id": "45967",
+          "body": "I tried to replicate the reported issue but was unable to reproduce it. However, I identified one issue in the email: it only displays non-compliant devices. I have attached a screenshot for reference. Please have a look and share your thoughts. Thanks",
+          "author": "Mamoon Nadeem",
+          "timestamp": "2026-09-16T10:43:06.906Z"
+        },
+        {
+          "id": "46002",
+          "body": "- So you did replicate the issue as I described.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-09-16T11:46:57.312Z"
         }
       ],
       "worklogs": [],
@@ -4119,19 +4137,19 @@
       "linkedIssueKeys": [
         "BCSD-522"
       ],
-      "canonicalStatus": "UAT",
+      "canonicalStatus": "DEVELOPMENT",
       "status": {
-        "name": "5) UAT",
-        "canonicalStatus": "UAT"
+        "name": "5.1) UAT - In Progress",
+        "canonicalStatus": "DEVELOPMENT"
       },
       "assigneeName": "Celeste Rush",
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-14T10:15:19.025Z",
-      "lastMeaningfulActivityAt": "2026-09-14T10:15:19.025Z",
+      "lastJiraActivityAt": "2026-09-16T08:00:12.269Z",
+      "lastMeaningfulActivityAt": "2026-09-16T08:00:12.269Z",
       "createdAt": "2026-06-08T07:42:32.684Z",
-      "updatedAt": "2026-09-14T10:15:19.025Z",
+      "updatedAt": "2026-09-16T08:00:12.269Z",
       "riskScores": [],
       "comments": [
         {
@@ -4205,7 +4223,7 @@
       ],
       "canonicalStatus": "UAT",
       "status": {
-        "name": "5) UAT",
+        "name": "5) UAT - Pending",
         "canonicalStatus": "UAT"
       },
       "assigneeName": "Celeste Rush",
@@ -4281,7 +4299,7 @@
       "dueDate": "2026-05-22T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": true,
+      "isMonitoredPriority": false,
       "labels": [],
       "components": [],
       "linkedIssueKeys": [
@@ -4297,24 +4315,12 @@
       "assigneeEmail": "nabeel.qadri@blockapt.com",
       "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/62a055ed4e1a640070c3bbf3/691955bf-f732-4fab-b8da-28f8f88729e7/48",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-16T06:03:39.886Z",
-      "lastMeaningfulActivityAt": "2026-09-16T06:03:39.886Z",
+      "lastJiraActivityAt": "2026-09-16T10:14:32.352Z",
+      "lastMeaningfulActivityAt": "2026-09-16T10:14:32.352Z",
       "createdAt": "2025-06-23T10:18:28.672Z",
-      "updatedAt": "2026-09-16T06:03:39.886Z",
+      "updatedAt": "2026-09-16T10:14:32.352Z",
       "riskScores": [],
       "comments": [
-        {
-          "id": "43813",
-          "body": "Update — BSB-2230: Upgrade to PHP 8.4.xStatus: PHP 8.4 is deployed and verified running. However, closing this ticket required more than the version bump itself — the platform had accumulated a large amount of fallout from the related repo restructure (splitting the monorepo's services out of master/ into top-level folders) that was never fully completed, and several services had no working deployment path at all as a result. Verified and fixed all of it against a live deployment today.\nPHP 8.4 confirmationmaster/ runs on PHP 8.4 (composer.json platform requirement, ansible php_version: \"8.4\", CI image php:8.4-cli-bookworm) — confirmed via a live php artisan tinker session against the deployed app (successfully resolved UserController's full dependency graph and executed application code).One remaining PHP 8.4 compatibility issue found: TenableRepository::parseTenableNessusXmlReport() (app/Repository/admin/TenableRepository.php:1987) declares an optional parameter ($file_name = null) before a required one ($template_id) — PHP 8.4 emits a deprecation warning on every call. Not blocking, but should be cleaned up before this ticket closes (trivial fix: reorder the parameters).Fallout from the restructure that blocked full validationThis repo's earlier restructure (see 6abfa1083, tagged to this ticket) moved logger/, graphs/, socket/, rainbow/, node-cron/, pdf/ out of master/ into top-level siblings, but left multiple hardcoded paths pointing at their old nested locations. This meant the platform couldn't be confirmed fully working end-to-end under the new PHP 8.4 stack until these were found and fixed:\nrainbow/, node-cron/ (8 jobs), pdf/ — had no package.json at all since the move, so neither Docker nor a bare install ever worked.\"Server Controls\" admin UI (and 7 related files — a socket watchdog, middleware, PDF generation, a helper, the software self-updater) — all referenced the pre-restructure nested paths (master/icyber_loggers/, master/icyber_graphs/, master/nats_agent/). A prior partial attempt at this exists in history (424ccdf90, 4abc5f0c8, 4a66b304c) but didn't cover all the affected files or the process-naming issue below.PM2 process naming — none of the start commands specified --name, so using Server Controls to restart a service would have spawned a wrongly-configured duplicate rather than managing the real process (most seriously for graphs, which additionally needs to run under Node 20, not the system Node 24, due to a native module incompatibility).mte (Python/Flask, used for MTE encoding) — had zero deployment path at all; missing dependencies, and its Nginx config pointed at SSL certs from a decommissioned server.All of the above are fixed, deployed, and verified (HTTP health checks + process status) on the live host, and automated into the ansible deployment role so they don't regress on the next deploy.\nDocumentation added for future referenceblockapt_ansible/DEPLOYMENT_NOTES.md — deployment history and current service inventoryblockaptv9/REPO_STRUCTURE.md — what every folder is and its statusPer-folder CI checks added to bitbucket-pipelines.yml",
-          "author": "Nabeel Qadri",
-          "timestamp": "2026-08-07T14:07:28.498Z"
-        },
-        {
-          "id": "43814",
-          "body": "Linking BSB-2230 (PHP 8.4 upgrade) — both tickets are being delivered together in the same release/deployment.",
-          "author": "Nabeel Qadri",
-          "timestamp": "2026-08-07T14:16:34.768Z"
-        },
         {
           "id": "44253",
           "body": "Update — 2026-08-17Confirmed live on staging (34.100.175.145): php -v reports PHP 8.4.24, matching composer.json's \"php\": \"^8.4\" requirement.\nFixed the one outstanding item from the last update: TenableRepository::parseTenableNessusXmlReport() declared an optional parameter ($file_name = null) before a required one ($template_id), which PHP 8.4 deprecates on every call. Reordered the signature to ($xml_path, $template_id, $file_name = null) and updated the one call site (SystemCroneRepository.php) to match. Verified via php -l and confirmed no other call sites exist.\nWhile auditing for other pre-restructure regressions (added a CI \"repo-structure guard\" step to bitbucket-pipelines.yml that checks every service folder has its manifest/Dockerfile and greps for reintroduced legacy paths), found and fixed a real, separate live bug: every Oracle Cloud VM-migration / firewall-rule-migration call site (OracleCloud.php, VmMigrationController.php, FirewallRuleMigrateRepository.php, OracleCloudRepository.php, APIController.php) still hardcoded base_path('Oracle_Oci/...'), but that folder was renamed to oracle-oci (lowercase, hyphen) in the restructure this ticket's own history references. On a case-sensitive Linux host every one of those calls resolved to a nonexistent path — the OCI private key, migration scripts, and log file were all silently unreachable. Fixed across all 5 files; not part of this ticket's original scope but the same restructure-fallout class of bug this ticket has been tracking, so flagging here rather than opening a separate ticket.\nAll changes deployed and verified on staging as of this update.",
@@ -4422,6 +4428,18 @@
           "body": "🤖 Automated status check: This story was moved to UAT Failed on 2026-09-15 with several distinct issues reported (Splunk cert/DNS install failure, Endpoint Protection and Vulnerability Management widget/UI errors, and Nessus scheduled-task/report data not populating), but none of these are tracked as subtasks. Next step: confirm root cause and scope for each reported issue, then break them out into subtasks so fixes can be tracked individually.",
           "author": "Nabeel Qadri",
           "timestamp": "2026-09-16T06:03:39.886Z"
+        },
+        {
+          "id": "45929",
+          "body": "🤖 Automated status check: Created 5 subtasks for the distinct UAT-failure issues reported so far — BSB-2833 (Splunk install DNS/cert failure), BSB-2834 (Endpoint Protection widgets stuck loading), BSB-2835 (Web Security Domain list scroll error), BSB-2836 (Vulnerability Management 30-day filter error), and BSB-2837 (Nessus scheduled task/report data not populating). Next step: triage and fix each individually, starting with BSB-2837 since it blocks Nessus reporting entirely.",
+          "author": "Nabeel Qadri",
+          "timestamp": "2026-09-16T09:03:34.234Z"
+        },
+        {
+          "id": "45966",
+          "body": "started an other card in parallel",
+          "author": "Nabeel Qadri",
+          "timestamp": "2026-09-16T10:14:22.203Z"
         }
       ],
       "worklogs": [],
@@ -4454,17 +4472,17 @@
       ],
       "canonicalStatus": "DEVELOPMENT",
       "status": {
-        "name": "2) Development",
+        "name": "2.1) Development - Paused",
         "canonicalStatus": "DEVELOPMENT"
       },
       "assigneeName": "Nabeel Qadri",
       "assigneeEmail": "nabeel.qadri@blockapt.com",
       "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/62a055ed4e1a640070c3bbf3/691955bf-f732-4fab-b8da-28f8f88729e7/48",
       "reporterName": "Adel Nasseri",
-      "lastJiraActivityAt": "2026-09-16T05:46:17.478Z",
-      "lastMeaningfulActivityAt": "2026-09-16T05:46:17.478Z",
+      "lastJiraActivityAt": "2026-09-16T10:13:12.715Z",
+      "lastMeaningfulActivityAt": "2026-09-16T10:13:12.715Z",
       "createdAt": "2024-10-14T12:26:46.349Z",
-      "updatedAt": "2026-09-16T05:46:17.478Z",
+      "updatedAt": "2026-09-16T10:13:12.715Z",
       "riskScores": [],
       "comments": [
         {
@@ -4527,7 +4545,7 @@
       "jiraId": "22413",
       "key": "BSB-2441",
       "summary": "🚨 Cloudflare Alert: Cloudflare Service - undefined-incident_alert",
-      "description": "⚠️ Alert Update Timestamp: 2026-09-16T04:46:04.218+01:00 Message: Cloudflare alert triggered",
+      "description": "⚠️ Alert Update Timestamp: 2026-09-16T14:34:39.719+01:00 Message: Cloudflare alert triggered",
       "issueType": "Bug _ DevOps",
       "priority": "High",
       "storyPoints": null,
@@ -4536,7 +4554,7 @@
       "dueDate": null,
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": false,
+      "isMonitoredPriority": true,
       "labels": [
         "cloudflare-incident"
       ],
@@ -4551,10 +4569,10 @@
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Stephane Yetna",
-      "lastJiraActivityAt": "2026-09-16T03:46:06.722Z",
-      "lastMeaningfulActivityAt": "2026-09-16T03:46:06.722Z",
+      "lastJiraActivityAt": "2026-09-16T13:34:42.268Z",
+      "lastMeaningfulActivityAt": "2026-09-16T13:34:42.268Z",
       "createdAt": "2025-11-25T06:44:59.375Z",
-      "updatedAt": "2026-09-16T03:46:06.722Z",
+      "updatedAt": "2026-09-16T13:34:42.268Z",
       "riskScores": [],
       "comments": [],
       "worklogs": [],
@@ -5129,17 +5147,20 @@
         "canonicalStatus": "TODO"
       },
       "reporterName": "Dulan Dissanayake",
-      "lastJiraActivityAt": "2026-09-15T08:50:25.548Z",
-      "lastMeaningfulActivityAt": "2026-09-15T08:50:25.548Z",
+      "lastJiraActivityAt": "2026-09-16T10:46:18.678Z",
+      "lastMeaningfulActivityAt": "2026-09-16T10:46:18.678Z",
       "createdAt": "2026-09-15T02:25:18.376Z",
-      "updatedAt": "2026-09-15T08:50:25.548Z",
+      "updatedAt": "2026-09-16T10:46:18.678Z",
       "riskScores": [],
       "comments": [],
       "worklogs": [],
       "gitCommits": [],
       "pullRequests": [],
       "qaValidations": [],
-      "uatValidations": []
+      "uatValidations": [],
+      "assigneeName": "Rana Asad",
+      "assigneeEmail": "rana.asad@blockapt.com",
+      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/a8d3c994f512219f57a8a7688ac4c969?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRA-3.png"
     },
     {
       "id": "30064",
@@ -5164,17 +5185,17 @@
       ],
       "canonicalStatus": "DEVELOPMENT",
       "status": {
-        "name": "2) Development",
+        "name": "2.1) Development - Paused",
         "canonicalStatus": "DEVELOPMENT"
       },
       "assigneeName": "Talal Ghauri",
       "assigneeEmail": "talal.ghauri@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/38050fb1d0b2d0af5e7cb4da803ec8a4?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTG-0.png",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-15T08:46:00.440Z",
-      "lastMeaningfulActivityAt": "2026-09-15T08:46:00.440Z",
+      "lastJiraActivityAt": "2026-09-16T10:49:20.968Z",
+      "lastMeaningfulActivityAt": "2026-09-16T10:49:20.968Z",
       "createdAt": "2026-09-09T07:07:20.438Z",
-      "updatedAt": "2026-09-15T08:46:00.440Z",
+      "updatedAt": "2026-09-16T10:49:20.968Z",
       "riskScores": [],
       "comments": [
         {
@@ -5182,6 +5203,18 @@
           "body": "Findings from initial CyberShadows evaluation — flagging before demo commitment\nReviewed the CyberShadows Threat Intelligence API technical whitepaper and ran a direct comparison test against VirusTotal. Results below show a real coverage gap, not just a theoretical one.\nDirect test — same IP, two platforms:\nIP: 121.46.239.201 (AS 4811, China Telecom)\nPlatformResultVirusTotal12 / 89 security vendors flagged this IP as malicious — categorized as Malicious/Phishing/Malware across multiple named vendors (Abusix, Fortinet, BitDefender, CRDF, Lionic, MalwareURL, VIPRE, etc.), community score -1, last analyzed 4 days agoCyberShadows (GET /api/v1/search?ip=121.46.239.201)\"found\": false — no detection at allA known-malicious IP that VT catches via 12 independent vendor engines returns a clean/not-found result from CyberShadows. This is a direct, reproducible example of the coverage gap flagged in the earlier whitepaper review (BSB-2794) — not a hypothetical concern about missing documentation, but a live miss on a real threat.\nRecap of the underlying gaps (from whitepaper review):\nCS exposes only two endpoints total — GET /api/v1/search (IP lookup) and GET /api/v1/query (key status). No grading (green/amber/red), no multi-engine consensus, no domain/URL/hash lookup, no batch endpoint.No visibility into what feeds the CS detections catalogue — the test above suggests it's a much smaller/narrower source set than VT's 89-vendor aggregation.Portal (admin.cybershadows.com/shadow) doesn't surface any additional capability beyond these two APIs.Searched the CyberShadows admin portal directly for any additional API reference beyond the two documented endpoints — none found. The portal doesn't surface anything indicating broader capability exists.Recommendation: Given the demo is planned as P0, we should raise this test result directly with CyberShadows before committing to a date — specifically asking what data sources feed their catalogue and why a multi-vendor-flagged IP wasn't detected. As it stands, CS cannot be presented as a like-for-like VT replacement; at minimum this needs to be scoped as a narrower/supplementary tool rather than a swap.\n(Screenshots attached: VT detection result for 121.46.239.201, and the corresponding CyberShadows API response showing found: false.)",
           "author": "Talal Ghauri",
           "timestamp": "2026-09-09T10:15:49.213Z"
+        },
+        {
+          "id": "45894",
+          "body": "Flag added\nWe need to have a discussion on this before proceeding with the implementation.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-16T07:28:58.579Z"
+        },
+        {
+          "id": "45968",
+          "body": "As discussed in the Dev Scrum meeting, Dulan will review this and coordinate with the relevant team. Once he has an update, he will get back to us.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-16T10:49:05.130Z"
         }
       ],
       "worklogs": [],
@@ -5284,7 +5317,7 @@
       "jiraId": "29313",
       "key": "BSB-2761",
       "summary": "SME-Cloudflare Domains Not populating",
-      "description": "Old Master branch - BCRemit\nSME Web Threat Protection Widgets are blank when you visit the Dashboard.\nThe domains are populating in the main portal but nothing seen in the SME portal for any domain.\nHowever, when you change the date for one domain then the data will show for all.\nI have replicated the issue in my local Master VM.\nSee video.\nRoot cause: By default, the date picker was missing one parameter, so widget data wasn't available on first load. When the user changed the date from the date picker, that parameter became available, which made the widgets populate.\nSolution: Make this missing parameter available by default, so widgets populate without needing the user to touch the date picker first.",
+      "description": "Old Master branch - BCRemit\nSME Web Threat Protection Widgets are blank when you visit the Dashboard.\nThe domains are populating in the main portal but nothing seen in the SME portal for any domain.\nHowever, when you change the date for one domain then the data will show for all.\nI have replicated the issue in my local Master VM.\nSee video.\nRoot cause: The date picker appeared to have the latest date selected, but that date was never actually applied. Two things caused this: one parameter was missing by default on first load, and the date shown in the picker was not passed on to the page. Either way the page kept using the previously saved date, so the widgets had no data to show. Changing the date manually was the only thing that made it work.\nSolution: The missing parameter is now provided by default, and the real selected date is passed through, so the widgets load data for the date shown without the user having to touch the date picker.",
       "issueType": "Bug _ DevOps",
       "priority": "Highest",
       "storyPoints": null,
@@ -5293,25 +5326,25 @@
       "dueDate": "2026-07-28T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": false,
+      "isMonitoredPriority": true,
       "labels": [
         "BCRemit"
       ],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "DEVELOPMENT",
+      "canonicalStatus": "QA",
       "status": {
-        "name": "2) Development",
-        "canonicalStatus": "DEVELOPMENT"
+        "name": "3) QA",
+        "canonicalStatus": "QA"
       },
-      "assigneeName": "Asad Tanveer",
-      "assigneeEmail": "asad.tanveer@blockapt.com",
-      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:943894d6-a29d-4ab1-b9a1-9d040d63b8a7/689d45ea-db0c-4888-bc26-74664a426e35/48",
+      "assigneeName": "Mamoon Nadeem",
+      "assigneeEmail": "mamoon.nadeem@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:ad244c4b-06f0-4d50-b56f-7ef6c468a65d/8d31c603-e348-41a2-b4f3-600ec790b57d/48",
       "reporterName": "Celeste Rush",
-      "lastJiraActivityAt": "2026-09-15T07:14:14.795Z",
-      "lastMeaningfulActivityAt": "2026-09-15T07:14:14.795Z",
+      "lastJiraActivityAt": "2026-09-16T11:55:59.849Z",
+      "lastMeaningfulActivityAt": "2026-09-16T11:55:59.849Z",
       "createdAt": "2026-07-21T16:18:57.822Z",
-      "updatedAt": "2026-09-15T07:14:14.795Z",
+      "updatedAt": "2026-09-16T11:55:59.849Z",
       "riskScores": [],
       "comments": [
         {
@@ -5385,6 +5418,24 @@
           "body": "Root cause found and fixed. the date picker was updating the date it displayed but not the date it queried, so widgets stayed blank until the filter was touched. Merged to elk-develop for testing. moving back to BSB-2806",
           "author": "Asad Tanveer",
           "timestamp": "2026-09-15T07:04:51.981Z"
+        },
+        {
+          "id": "45963",
+          "body": "I have tested it on the develop environment.",
+          "author": "Mamoon Nadeem",
+          "timestamp": "2026-09-16T09:50:06.319Z"
+        },
+        {
+          "id": "46001",
+          "body": "- Is the code on the non-elk develop branch?  or is it all the same code?\nThanks.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-09-16T11:44:32.881Z"
+        },
+        {
+          "id": "46005",
+          "body": "No, it is not on the non-elk develop branch. The fix is on elk-staging, elk-develop and elk-uat only.\nCC:",
+          "author": "Asad Tanveer",
+          "timestamp": "2026-09-16T11:55:31.634Z"
         }
       ],
       "worklogs": [],
@@ -5474,10 +5525,10 @@
       "assigneeEmail": "afifa.cheema@blockapt.com",
       "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:55a3ad6b-2993-4481-bd9e-90b050aa342d/876a58d7-443a-4bda-830c-5a3f57e0a857/48",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-16T07:09:07.848Z",
-      "lastMeaningfulActivityAt": "2026-09-16T07:09:07.848Z",
+      "lastJiraActivityAt": "2026-09-16T11:48:50.864Z",
+      "lastMeaningfulActivityAt": "2026-09-16T11:48:50.864Z",
       "createdAt": "2026-09-03T09:19:08.827Z",
-      "updatedAt": "2026-09-16T07:09:07.848Z",
+      "updatedAt": "2026-09-16T11:48:50.864Z",
       "riskScores": [],
       "comments": [
         {
@@ -5491,6 +5542,24 @@
           "body": "Tested on Develop Server and highligted the minor texy changes. Thanks",
           "author": "Afifa Cheema",
           "timestamp": "2026-09-10T11:43:11.843Z"
+        },
+        {
+          "id": "45896",
+          "body": "Please check the unit test cases for Edgenexus Monitoring. Thanks",
+          "author": "Rana Asad",
+          "timestamp": "2026-09-16T08:08:07.096Z"
+        },
+        {
+          "id": "46003",
+          "body": "Tested on the UAT server, and everything is working as expected for both WAF and LTM.\nAs I don’t currently have access to live LTM logs, I obtained sample LTM logs from GPT and used them for testing. The testing was successful from my side.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-16T11:48:14.459Z"
+        },
+        {
+          "id": "46004",
+          "body": "I’m attaching the raw log files along with the testing screenshots. Please have a look and let me know if everything looks good from your side.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-16T11:48:50.864Z"
         }
       ],
       "worklogs": [],
@@ -6977,6 +7046,262 @@
       "lastMeaningfulActivityAt": "2026-09-16T07:12:10.341Z",
       "createdAt": "2026-09-16T07:11:30.462Z",
       "updatedAt": "2026-09-16T07:12:10.341Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30576",
+      "jiraId": "30576",
+      "key": "BSB-2832",
+      "summary": "CI/CD Implementation",
+      "description": "Implement CI/CD pipelines to support both Continuous Delivery and Continuous Deployment.The pipelines should automate the build, testing, validation, and deployment processes to ensure application changes can be delivered consistently and reliably across environments.The implementation should include:\nAutomated build and dependency installation.Automated testing and validation before deployment.Continuous Delivery workflow for preparing validated releases for deployment.Continuous Deployment workflow for automatically deploying approved changes to the target environment.Environment-specific deployment stages.Proper error handling and pipeline failure reporting.Deployment logs and visibility for troubleshooting.Rollback or recovery mechanism in case of deployment failure.The goal is to establish a reliable and repeatable CI/CD process that reduces manual deployment effort and improves deployment consistency.",
+      "issueType": "Story",
+      "priority": "Highest",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": true,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "DEVELOPMENT",
+      "status": {
+        "name": "2) Development",
+        "canonicalStatus": "DEVELOPMENT"
+      },
+      "assigneeName": "Nabeel Qadri",
+      "assigneeEmail": "nabeel.qadri@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/62a055ed4e1a640070c3bbf3/691955bf-f732-4fab-b8da-28f8f88729e7/48",
+      "reporterName": "Afifa Cheema",
+      "lastJiraActivityAt": "2026-09-16T11:18:54.968Z",
+      "lastMeaningfulActivityAt": "2026-09-16T11:18:54.968Z",
+      "createdAt": "2026-09-16T07:47:08.547Z",
+      "updatedAt": "2026-09-16T11:18:54.968Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "45965",
+          "body": "Proposed plan for CI/CD Implementation — for approvalScope: `beta` branch only, on both blockaptv9 and blockapt_ansible — that's the only branch either repo currently runs a real pipeline on (blockaptv9's other pipeline entries are disabled/stale, e.g. its master branch config is pipelines: {}). Every item below assumes triggers stay on pushes to beta; new environment stages (item 5) should be reached via additional custom pipelines fired from beta, not by wiring up new branches.\nReviewed the current pipeline state against this card's acceptance criteria. Findings and plan broken into 7 subtasks, in suggested order:\n[BSB-2838](https://blockapt.atlassian.net/browse/BSB-2838) — Gate staging deploy on blockaptv9 CI passing. Docs claim a green push to blockaptv9's beta auto-triggers blockapt_ansible's deploy-staging, but that trigger step doesn't actually exist in the pipeline file. Today, staging deploys are driven only by pushes to blockapt_ansible's own beta, independent of blockaptv9's CI result.[BSB-2839](https://blockapt.atlassian.net/browse/BSB-2839) — Add the pre-deploy Cypress smoke gate. Also documented as already automated on beta, also missing from the actual file. Should land alongside #1 so the order is CI (beta) → smoke gate (beta) → deploy trigger.[BSB-2840](https://blockapt.atlassian.net/browse/BSB-2840) — Rollback/recovery mechanism. None exists today; a failed ansible-playbook mid-run (triggered off beta) can leave staging in a broken intermediate state.[BSB-2841](https://blockapt.atlassian.net/browse/BSB-2841) — Failure notifications (Slack/email). Pipeline failures on beta are currently only visible by manually checking Bitbucket — confirmed by 3 straight failed beta builds (#218–#220) that went unnoticed until manually queried.[BSB-2842](https://blockapt.atlassian.net/browse/BSB-2842) — Environment-specific deployment stages. Only staging exists today, triggered from beta. Needs a decision: which other environments (UAT/prod) are actually required, and should they still deploy from `beta` (via separate custom pipelines/approval gates) or need their own branch?[BSB-2843](https://blockapt.atlassian.net/browse/BSB-2843) — Rotate & vault plaintext SSH/become passwords in `hosts.ini`. Known gap, previously deferred on request — flagging for a fresh decision on timing. Not branch-specific (affects the target server regardless of which branch deploys to it).[BSB-2844](https://blockapt.atlassian.net/browse/BSB-2844) — End-to-end verification. No fully green run of the whole chain has ever been confirmed; run scripts/verify-cicd.sh against beta once 1–4 land, as the acceptance test for this card.Also already fixed in the process of this review (not a subtask, just fyi): the master (Laravel) CI step was failing on every beta push on a missing APP_KEY — fixed and pushed to beta.\nRequesting approval to proceed in the order above, scoped to beta throughout, and a decision on items 5 and 6 before those two are picked up.",
+          "author": "Nabeel Qadri",
+          "timestamp": "2026-09-16T09:51:45.794Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "29412",
+      "jiraId": "29412",
+      "key": "BSB-2764",
+      "summary": "VirusTotal Error When Searching on IP",
+      "description": "A free VirusTotal account throws a forbidden error when the user scans an IP.  Searching domain/URL is no problem and returns results.\nThe same account has no problem getting results in VirusTotal itself so not a VT permission issue.\nOther VT account devices work fine in the same Platform or will show the exceeded allowance notice upon occasion when that is the case.\nDevice details:\nblockaptpoc\n20ceb61e740661c477c4a19f64d1c950a0a3d4081be0531e29ad10da3814790f\nRoot cause:\nWhen a user searches an IP, the app also tries to fetch some extra related data (\"Related URLs\"), but VirusTotal does not allow that API call on free accounts (see VirusTotal's documentation: ), which is normal and expected. Instead of just skipping that missing piece, the app treated it as a full error and redirected to an error page.\nSolution:\nUpdated the code so that when VirusTotal blocks that extra API call, the app simply skips it instead of redirecting to an error page. The rest of the IP search results still display normally.",
+      "issueType": "Bug _ DevOps",
+      "priority": "Highest",
+      "storyPoints": null,
+      "originalEstimateSec": 57600,
+      "timeSpentSec": 43800,
+      "dueDate": "2026-08-04T00:00:00.000Z",
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [
+        "Askaris"
+      ],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "UAT",
+      "status": {
+        "name": "5.5) UAT - Pass",
+        "canonicalStatus": "UAT"
+      },
+      "assigneeName": "Celeste Rush",
+      "assigneeEmail": "celeste.rush@blockapt.com",
+      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
+      "reporterName": "Celeste Rush",
+      "lastJiraActivityAt": "2026-09-16T10:44:42.200Z",
+      "lastMeaningfulActivityAt": "2026-09-16T10:44:42.200Z",
+      "createdAt": "2026-07-28T11:17:05.386Z",
+      "updatedAt": "2026-09-16T10:44:42.200Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "43439",
+          "body": "I have tested it on the develop environment, and it has now been merged into the UAT environment. Please test and verify it on your end. Thanks",
+          "author": "Mamoon Nadeem",
+          "timestamp": "2026-08-04T12:39:15.761Z"
+        },
+        {
+          "id": "43848",
+          "body": "- Unfortunately the update did not resolve.  When it has hit the maximum calls I get the exceeded message.  I have just tried to scan a domain that currently has no website (I own it) and  get a forbidden message which is not the same.  The VirusTotal website shows unrated for all categories and there isn’t much data to return.\nPlease check again why I would get a 403 forbidden message for this account.\nThanks.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-08-10T10:03:28.622Z"
+        },
+        {
+          "id": "44532",
+          "body": "I have tested it, and it works as expected until the API key quota is exhausted. Once the quota is exceeded, the error occurs. I have also attached a screenshot for reference.",
+          "author": "Mamoon Nadeem",
+          "timestamp": "2026-08-19T08:37:36.396Z"
+        },
+        {
+          "id": "45964",
+          "body": "Passing UAT\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-09-16T09:51:31.717Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30620",
+      "jiraId": "30620",
+      "key": "BSB-2844",
+      "summary": "Run end-to-end CI/CD chain verification and record results",
+      "description": "Gap: per old/docs/ci-cd/README.md's \"Honesty note\", the Cloud Build + original staging-deploy trigger were last directly confirmed 2026-09-01, and the cypress-smoke restructure has had exactly one real run (which caught the submodule-checkout auth gap, since fixed but not re-run). No full green end-to-end run has ever been confirmed.\nTask: once the other subtasks here land (deploy gate, pre-deploy smoke gate), run scripts/verify-cicd.sh (or the manual steps 1-7 already documented in the README) against a real push, and record pass/fail for every stage: CI checks -> pre-deploy smoke gate -> Cloud Build -> staging deploy -> post-deploy smoke tests. This is the acceptance test for the whole parent card.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:42:25.425Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:42:25.425Z",
+      "createdAt": "2026-09-16T09:42:25.318Z",
+      "updatedAt": "2026-09-16T09:42:25.425Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30619",
+      "jiraId": "30619",
+      "key": "BSB-2843",
+      "summary": "Rotate and vault plaintext SSH/become passwords in hosts.ini",
+      "description": "Gap: blockapt_ansible/hosts.ini has the staging server's root SSH password and Ansible become password committed in plaintext, in git history, not vaulted - explicitly documented as a known gap in old/docs/ci-cd/README.md (\"Known gap, not addressed here\"), left as-is at the user's prior explicit request (\"ignore hosts.ini for this time\").\nTask: rotate both passwords and move them into ansible-vault (same pattern already used for vars.yml's vault_* fields, reusing the existing ANSIBLE_VAULT_PASSWORD repository variable), or migrate to SSH-key auth entirely. Revisit the prior \"ignore for now\" decision with the user before starting, since it was explicitly deferred once already.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:42:19.978Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:42:19.978Z",
+      "createdAt": "2026-09-16T09:42:19.823Z",
+      "updatedAt": "2026-09-16T09:42:19.978Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30618",
+      "jiraId": "30618",
+      "key": "BSB-2842",
+      "summary": "Add environment-specific deployment stages (beyond staging-only)",
+      "description": "Gap: the entire CI/CD chain currently targets exactly one environment - staging (34.100.175.145). The parent card's acceptance criteria call for \"environment-specific deployment stages,\" but there's no dev/UAT/prod distinction anywhere in blockapt_ansible's playbook, hosts.ini, or either repo's bitbucket-pipelines.yml.\nTask: clarify with the user which additional environments are actually needed (UAT? production?), then extend hosts.ini/playbook vars and the pipeline's custom pipelines to support a per-environment target (e.g. deploy-uat, deploy-production custom pipelines, gated appropriately - production likely needs a manual approval step, not auto-deploy on green).",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:42:14.929Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:42:14.929Z",
+      "createdAt": "2026-09-16T09:42:14.720Z",
+      "updatedAt": "2026-09-16T09:42:14.929Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30617",
+      "jiraId": "30617",
+      "key": "BSB-2841",
+      "summary": "Add pipeline failure notifications (Slack/email) for CI and deploy",
+      "description": "Gap: pipeline failures are only visible by manually checking Bitbucket's Pipelines tab. No push notification exists for a failed CI run, a failed pre-deploy gate, or a failed staging deploy - confirmed via the 3 consecutive failed beta builds (#218-#220) that went unnoticed until manually queried today.\nTask: add a notification step (Slack webhook or email, whichever channel the team actually watches - confirm with the user) that fires on failure for: the beta CI pipeline, the pre-deploy smoke gate, and blockapt_ansible's deploy-staging pipeline. Keep it low-noise - failure only, not success spam, unless the user wants both.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:42:09.852Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:42:09.852Z",
+      "createdAt": "2026-09-16T09:42:09.703Z",
+      "updatedAt": "2026-09-16T09:42:09.852Z",
       "riskScores": [],
       "comments": [],
       "worklogs": [],

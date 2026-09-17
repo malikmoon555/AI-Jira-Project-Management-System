@@ -189,26 +189,32 @@ export class AIService {
     const openai = this.getOpenAIClient();
 
     // Check conversation history
-    let conv = await this.prisma.aIConversation.findUnique({
-      where: { id: conversationId },
-      include: { messages: { take: 10, orderBy: { createdAt: 'asc' } } },
-    });
-
-    if (!conv) {
-      conv = await this.prisma.aIConversation.create({
-        data: { id: conversationId, title: question.substring(0, 40) },
-        include: { messages: true },
+    let conv: any = null;
+    try {
+      conv = await this.prisma.aIConversation.findUnique({
+        where: { id: conversationId },
+        include: { messages: { take: 10, orderBy: { createdAt: 'asc' } } },
       });
-    }
 
-    // Save user message
-    await this.prisma.aIMessage.create({
-      data: {
-        conversationId: conv.id,
-        role: 'user',
-        content: question,
-      },
-    });
+      if (!conv) {
+        conv = await this.prisma.aIConversation.create({
+          data: { id: conversationId, title: question.substring(0, 40) },
+          include: { messages: true },
+        });
+      }
+
+      // Save user message
+      await this.prisma.aIMessage.create({
+        data: {
+          conversationId: conv.id,
+          role: 'user',
+          content: question,
+        },
+      });
+    } catch (e: any) {
+      this.logger.warn(`AI conversation history DB write deferred: ${e.message}`);
+      conv = { id: conversationId, messages: [] };
+    }
 
     // Check if query targets a specific issue key like SPM-46 or BSB-2771
     const issueMatch = question.match(/([A-Z0-9]{2,10}-\d+)/i);
@@ -241,13 +247,15 @@ export class AIService {
     if (!openai) {
       // Deterministic factual response directly from PostgreSQL data
       const answer = this.generateDeterministicAnswer(question, queryType, contextData, matchedKey);
-      await this.prisma.aIMessage.create({
-        data: {
-          conversationId: conv.id,
-          role: 'assistant',
-          content: answer,
-        },
-      });
+      try {
+        await this.prisma.aIMessage.create({
+          data: {
+            conversationId: conv.id,
+            role: 'assistant',
+            content: answer,
+          },
+        });
+      } catch (e: any) {}
       return { answer, source: 'DATABASE_DIRECT' };
     }
 
@@ -258,6 +266,11 @@ DO NOT fabricate or hallucinate any issues, commit hashes, or timestamps.
 Target Monitored Priority Issues are: BSB-2771, BSB-2652, BSB-2559, BSB-2606, BSB-2690.
 If data does not exist, clearly state that it is not found in the Jira/Git database.`;
 
+    const historyMessages = (conv.messages || []).map((m: any) => ({
+      role: m.role as any,
+      content: m.content,
+    }));
+
     const response = await openai.chat.completions.create({
       model: process.env.OPENAI_MODEL || 'gpt-4o',
       messages: [
@@ -266,10 +279,7 @@ If data does not exist, clearly state that it is not found in the Jira/Git datab
           role: 'system',
           content: `Real PostgreSQL Context Data for this query:\n${JSON.stringify(contextData, null, 2)}`,
         },
-        ...conv.messages.map((m) => ({
-          role: m.role as any,
-          content: m.content,
-        })),
+        ...historyMessages,
         { role: 'user', content: question },
       ],
       temperature: 0.2,
@@ -277,13 +287,15 @@ If data does not exist, clearly state that it is not found in the Jira/Git datab
 
     const assistantContent = response.choices[0]?.message?.content || 'No response generated.';
 
-    await this.prisma.aIMessage.create({
-      data: {
-        conversationId: conv.id,
-        role: 'assistant',
-        content: assistantContent,
-      },
-    });
+    try {
+      await this.prisma.aIMessage.create({
+        data: {
+          conversationId: conv.id,
+          role: 'assistant',
+          content: assistantContent,
+        },
+      });
+    } catch (e: any) {}
 
     return { answer: assistantContent, source: 'OPENAI_GROUNDED' };
   }
