@@ -4003,7 +4003,7 @@
       "priority": "Highest",
       "storyPoints": null,
       "originalEstimateSec": 144000,
-      "timeSpentSec": 212400,
+      "timeSpentSec": 234000,
       "dueDate": "2026-06-05T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
@@ -4011,19 +4011,19 @@
       "labels": [],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "UAT",
+      "canonicalStatus": "QA",
       "status": {
-        "name": "5.4) UAT - Fail",
-        "canonicalStatus": "UAT"
+        "name": "3) QA",
+        "canonicalStatus": "QA"
       },
-      "assigneeName": "Celeste Rush",
-      "assigneeEmail": "celeste.rush@blockapt.com",
-      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
+      "assigneeName": "Mamoon Nadeem",
+      "assigneeEmail": "mamoon.nadeem@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:ad244c4b-06f0-4d50-b56f-7ef6c468a65d/8d31c603-e348-41a2-b4f3-600ec790b57d/48",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-16T11:46:57.312Z",
-      "lastMeaningfulActivityAt": "2026-09-16T11:46:57.312Z",
+      "lastJiraActivityAt": "2026-09-17T14:25:17.450Z",
+      "lastMeaningfulActivityAt": "2026-09-17T14:25:17.450Z",
       "createdAt": "2026-05-15T06:32:52.531Z",
-      "updatedAt": "2026-09-16T11:46:57.312Z",
+      "updatedAt": "2026-09-17T14:25:17.450Z",
       "riskScores": [],
       "comments": [
         {
@@ -4109,6 +4109,24 @@
           "body": "- So you did replicate the issue as I described.\ncc",
           "author": "Celeste Rush",
           "timestamp": "2026-09-16T11:46:57.312Z"
+        },
+        {
+          "id": "46043",
+          "body": ", yes, we did the same as you did. However, we only encountered the one issue that Mamonn mentioned, and the development team is currently working on it.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-17T05:59:11.476Z"
+        },
+        {
+          "id": "46045",
+          "body": "hi ,\nRan the playbook against the same setup (one compliant, one non-compliant device) to verify each point:\nDevice identification — both devices are detected and named correctly. The notification shows u24dn as compliant and BETA as non-compliant.\nThe compliant device missing from your earlier run was excluded by the 15-minute time window — it hadn't refreshed within the window at that point, not a code issue.\nPDF report — working fine on our end. Mamoon was right on this one.\nEmail — confirmed as a bug. The playbook was sending one email per branch (non-compliant, compliant, fallback) instead of one consolidated email, and the compliant devices weren't included in it. Fix is ready and will be on UAT shortly.CC",
+          "author": "Waqar Tanveer",
+          "timestamp": "2026-09-17T07:19:00.910Z"
+        },
+        {
+          "id": "46052",
+          "body": "Email consolidation fix pushed to UAT. Moving to the priority card .cc",
+          "author": "Waqar Tanveer",
+          "timestamp": "2026-09-17T11:32:06.681Z"
         }
       ],
       "worklogs": [],
@@ -4545,7 +4563,7 @@
       "jiraId": "22413",
       "key": "BSB-2441",
       "summary": "🚨 Cloudflare Alert: Cloudflare Service - undefined-incident_alert",
-      "description": "⚠️ Alert Update Timestamp: 2026-09-16T14:34:39.719+01:00 Message: Cloudflare alert triggered",
+      "description": "⚠️ Alert Update Timestamp: 2026-09-17T15:42:03.352+01:00 Message: Cloudflare alert triggered",
       "issueType": "Bug _ DevOps",
       "priority": "High",
       "storyPoints": null,
@@ -4569,10 +4587,10 @@
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Stephane Yetna",
-      "lastJiraActivityAt": "2026-09-16T13:34:42.268Z",
-      "lastMeaningfulActivityAt": "2026-09-16T13:34:42.268Z",
+      "lastJiraActivityAt": "2026-09-17T14:42:05.893Z",
+      "lastMeaningfulActivityAt": "2026-09-17T14:42:05.893Z",
       "createdAt": "2025-11-25T06:44:59.375Z",
-      "updatedAt": "2026-09-16T13:34:42.268Z",
+      "updatedAt": "2026-09-17T14:42:05.893Z",
       "riskScores": [],
       "comments": [],
       "worklogs": [],
@@ -4601,7 +4619,7 @@
       "linkedIssueKeys": [],
       "canonicalStatus": "UAT",
       "status": {
-        "name": "5.1) UAT - Fail",
+        "name": "5.4) UAT - Fail",
         "canonicalStatus": "UAT"
       },
       "assigneeName": "Celeste Rush",
@@ -4679,7 +4697,7 @@
       ],
       "canonicalStatus": "UAT",
       "status": {
-        "name": "5.1) UAT - Fail",
+        "name": "5.4) UAT - Fail",
         "canonicalStatus": "UAT"
       },
       "assigneeName": "Celeste Rush",
@@ -4756,12 +4774,19 @@
       "assigneeEmail": "waqar.tanveer@blockapt.com",
       "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe3c6193-c1eb-49da-8037-5480f4870fe7/3f174525-3f3c-4ba4-a764-007584aa23fd/48",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-15T14:33:16.914Z",
-      "lastMeaningfulActivityAt": "2026-09-15T14:33:16.914Z",
+      "lastJiraActivityAt": "2026-09-16T08:02:43.459Z",
+      "lastMeaningfulActivityAt": "2026-09-16T08:02:43.459Z",
       "createdAt": "2026-09-03T09:20:17.658Z",
-      "updatedAt": "2026-09-15T14:33:16.914Z",
+      "updatedAt": "2026-09-16T08:02:43.459Z",
       "riskScores": [],
-      "comments": [],
+      "comments": [
+        {
+          "id": "45895",
+          "body": "Pausing this to pick up  , which has taken priority. The device pages and the task actions are done and tested. The remaining API integration will continue once   is finished.",
+          "author": "Waqar Tanveer",
+          "timestamp": "2026-09-16T08:02:11.644Z"
+        }
+      ],
       "worklogs": [],
       "gitCommits": [],
       "pullRequests": [],
@@ -4817,7 +4842,7 @@
       "priority": "Medium",
       "storyPoints": null,
       "originalEstimateSec": 288000,
-      "timeSpentSec": 86400,
+      "timeSpentSec": 115200,
       "dueDate": "2026-09-14T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
@@ -4834,10 +4859,10 @@
       "assigneeEmail": "abdullah.rafique@blockapt.com",
       "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:2fea945d-b892-4f34-996c-aa1864398952/68ce8d88-022c-4554-87b8-ec5c81729aea/48",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-15T13:20:34.799Z",
-      "lastMeaningfulActivityAt": "2026-09-15T13:20:34.799Z",
+      "lastJiraActivityAt": "2026-09-16T14:21:50.848Z",
+      "lastMeaningfulActivityAt": "2026-09-16T14:21:50.848Z",
       "createdAt": "2026-09-03T09:21:40.648Z",
-      "updatedAt": "2026-09-15T13:20:34.799Z",
+      "updatedAt": "2026-09-16T14:21:50.848Z",
       "riskScores": [],
       "comments": [],
       "worklogs": [],
@@ -4858,27 +4883,27 @@
       "originalEstimateSec": 28800,
       "timeSpentSec": 10800,
       "dueDate": null,
-      "resolution": null,
-      "resolvedAt": null,
-      "isMonitoredPriority": true,
+      "resolution": "Done",
+      "resolvedAt": "2026-09-17T05:56:39.121Z",
+      "isMonitoredPriority": false,
       "labels": [],
       "components": [],
       "linkedIssueKeys": [
         "BCSD-547"
       ],
-      "canonicalStatus": "UAT",
+      "canonicalStatus": "DONE",
       "status": {
-        "name": "5) UAT",
-        "canonicalStatus": "UAT"
+        "name": "7) Done",
+        "canonicalStatus": "DONE"
       },
       "assigneeName": "Celeste Rush",
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-16T07:08:26.270Z",
-      "lastMeaningfulActivityAt": "2026-09-16T07:08:26.270Z",
+      "lastJiraActivityAt": "2026-09-17T05:56:39.138Z",
+      "lastMeaningfulActivityAt": "2026-09-17T05:56:39.138Z",
       "createdAt": "2026-09-14T07:28:11.439Z",
-      "updatedAt": "2026-09-16T07:08:26.270Z",
+      "updatedAt": "2026-09-17T05:56:39.138Z",
       "riskScores": [],
       "comments": [
         {
@@ -4886,6 +4911,18 @@
           "body": "&   I’m unable to reproduce the issue on my end. I’ve attached a video using the same playbook for reference. Please test it on your end and verify the behavior.",
           "author": "Mamoon Nadeem",
           "timestamp": "2026-09-15T08:03:46.274Z"
+        },
+        {
+          "id": "46009",
+          "body": "- I am unable to replicate the issue on my elk-master or elk-develop servers.  I lose the connectors from output to the processors and actions so have to connect again but the playbook can be edited and saved with the Email action.\nI have also tested on the Master server playbook and noted that there were 2 duplicate processors.  I’ve removed these and the playbook is saving with email configured.  Not sure if that was the reason why it didn’t work before.\n- Please check this out and verify that it is all working for you now.\nThanks.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-09-16T17:11:50.203Z"
+        },
+        {
+          "id": "46042",
+          "body": "We’ll monitor this and see if the issue occurs again. For now, I’m going to close the card.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-17T05:56:17.531Z"
         }
       ],
       "worklogs": [],
@@ -4947,13 +4984,13 @@
       "dueDate": "2026-09-18T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": true,
+      "isMonitoredPriority": false,
       "labels": [],
       "components": [],
       "linkedIssueKeys": [],
       "canonicalStatus": "UAT",
       "status": {
-        "name": "5) UAT",
+        "name": "5) UAT - Pending",
         "canonicalStatus": "UAT"
       },
       "assigneeName": "Celeste Rush",
@@ -5130,29 +5167,36 @@
       "issueType": "Story",
       "priority": "Highest",
       "storyPoints": null,
-      "originalEstimateSec": null,
+      "originalEstimateSec": 115200,
       "timeSpentSec": 0,
-      "dueDate": null,
+      "dueDate": "2026-09-22T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": false,
+      "isMonitoredPriority": true,
       "labels": [
         "Brilliantel"
       ],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "TODO",
+      "canonicalStatus": "DEVELOPMENT",
       "status": {
-        "name": "1) To Do",
-        "canonicalStatus": "TODO"
+        "name": "2) Development",
+        "canonicalStatus": "DEVELOPMENT"
       },
       "reporterName": "Dulan Dissanayake",
-      "lastJiraActivityAt": "2026-09-16T10:46:18.678Z",
-      "lastMeaningfulActivityAt": "2026-09-16T10:46:18.678Z",
+      "lastJiraActivityAt": "2026-09-17T13:29:21.673Z",
+      "lastMeaningfulActivityAt": "2026-09-17T13:29:21.673Z",
       "createdAt": "2026-09-15T02:25:18.376Z",
-      "updatedAt": "2026-09-16T10:46:18.678Z",
+      "updatedAt": "2026-09-17T13:29:21.673Z",
       "riskScores": [],
-      "comments": [],
+      "comments": [
+        {
+          "id": "46056",
+          "body": "H3C Firewall Monitoring\nKafka logger and TCP route (Firewall)\nAdd Firewall as a new H3C device category, alongside Router and Switch\nUpdate Kafka logger for H3C Firewall log ingestion\nSet up TCP route mapping for the category\nEnsure ingested logs are tagged as H3C / Firewall\nLog processing pipeline (Firewall)\nCreate a dedicated pipeline for Firewall\nParse H3C SecPath firewall syslog, in both the Comware field format and the short key=value format\nExtract fields such as source IP, source port, destination IP, destination port\nRegister the pipeline\nIndex parsed logs into Elasticsearch\nThreshold playbook (Firewall)\nAdd playbook support for H3C Firewall using Source IP, Destination IP, Translated Source IP, Translated Destination IP and Domain Name\nKibana dashboard (Firewall)\nCreate H3C Firewall dashboard\nSOC detection (Firewall)\nAdd detection rules for IPS, anti-virus, WAF, URL and DNS filter, IP reputation, blacklist, session exhaustion and VPN login failures\nMake sure allowed traffic does not raise alerts\nSOC command center and widgets (Firewall)\nAdd H3C Firewall to SOC command center navigation\nAdd Kibana deep-link support for H3C Firewall logs\nAdd natural language search routing for H3C Firewall\nAdd graph / widget rendering support\nAdd frontend device selector support for H3C / Firewall",
+          "author": "Rana Asad",
+          "timestamp": "2026-09-17T13:29:21.592Z"
+        }
+      ],
       "worklogs": [],
       "gitCommits": [],
       "pullRequests": [],
@@ -5233,7 +5277,7 @@
       "priority": "Highest",
       "storyPoints": null,
       "originalEstimateSec": 86400,
-      "timeSpentSec": 25200,
+      "timeSpentSec": 50400,
       "dueDate": null,
       "resolution": null,
       "resolvedAt": null,
@@ -5252,10 +5296,10 @@
       "assigneeEmail": "talal.ghauri@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/38050fb1d0b2d0af5e7cb4da803ec8a4?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTG-0.png",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-15T08:15:57.445Z",
-      "lastMeaningfulActivityAt": "2026-09-15T08:15:57.445Z",
+      "lastJiraActivityAt": "2026-09-16T14:17:39.290Z",
+      "lastMeaningfulActivityAt": "2026-09-16T14:17:39.290Z",
       "createdAt": "2026-09-14T07:43:34.007Z",
-      "updatedAt": "2026-09-15T08:15:57.445Z",
+      "updatedAt": "2026-09-16T14:17:39.290Z",
       "riskScores": [],
       "comments": [],
       "worklogs": [],
@@ -5274,7 +5318,7 @@
       "priority": "Highest",
       "storyPoints": null,
       "originalEstimateSec": 201600,
-      "timeSpentSec": 374400,
+      "timeSpentSec": 381600,
       "dueDate": "2026-07-08T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
@@ -5293,10 +5337,10 @@
       "assigneeEmail": "afifa.cheema@blockapt.com",
       "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:55a3ad6b-2993-4481-bd9e-90b050aa342d/876a58d7-443a-4bda-830c-5a3f57e0a857/48",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-15T07:32:24.745Z",
-      "lastMeaningfulActivityAt": "2026-09-15T07:32:24.745Z",
+      "lastJiraActivityAt": "2026-09-16T14:37:05.137Z",
+      "lastMeaningfulActivityAt": "2026-09-16T14:37:05.137Z",
       "createdAt": "2026-06-15T06:46:36.963Z",
-      "updatedAt": "2026-09-15T07:32:24.745Z",
+      "updatedAt": "2026-09-16T14:37:05.137Z",
       "riskScores": [],
       "comments": [
         {
@@ -5326,25 +5370,25 @@
       "dueDate": "2026-07-28T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": true,
+      "isMonitoredPriority": false,
       "labels": [
         "BCRemit"
       ],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "QA",
+      "canonicalStatus": "UAT",
       "status": {
-        "name": "3) QA",
-        "canonicalStatus": "QA"
+        "name": "5) UAT - Pending",
+        "canonicalStatus": "UAT"
       },
-      "assigneeName": "Mamoon Nadeem",
-      "assigneeEmail": "mamoon.nadeem@blockapt.com",
-      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:ad244c4b-06f0-4d50-b56f-7ef6c468a65d/8d31c603-e348-41a2-b4f3-600ec790b57d/48",
+      "assigneeName": "Celeste Rush",
+      "assigneeEmail": "celeste.rush@blockapt.com",
+      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Celeste Rush",
-      "lastJiraActivityAt": "2026-09-16T11:55:59.849Z",
-      "lastMeaningfulActivityAt": "2026-09-16T11:55:59.849Z",
+      "lastJiraActivityAt": "2026-09-17T07:30:21.218Z",
+      "lastMeaningfulActivityAt": "2026-09-17T07:30:21.218Z",
       "createdAt": "2026-07-21T16:18:57.822Z",
-      "updatedAt": "2026-09-16T11:55:59.849Z",
+      "updatedAt": "2026-09-17T07:30:21.218Z",
       "riskScores": [],
       "comments": [
         {
@@ -5436,6 +5480,24 @@
           "body": "No, it is not on the non-elk develop branch. The fix is on elk-staging, elk-develop and elk-uat only.\nCC:",
           "author": "Asad Tanveer",
           "timestamp": "2026-09-16T11:55:31.634Z"
+        },
+        {
+          "id": "46006",
+          "body": "- This is working on my elk-develop machines.  Can you please move to master including old master so I can retest on the affected machines?\nThanks.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-09-16T13:45:44.854Z"
+        },
+        {
+          "id": "46044",
+          "body": ", the following code is now up and running on the Master Server. Please test it and let me know if it is working as expected on your end.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-17T06:03:07.303Z"
+        },
+        {
+          "id": "46047",
+          "body": "The fix is on both old master and elk master, merged. Please recompile the executive dashboard build and clear the browser cache before testing. Thanks",
+          "author": "Asad Tanveer",
+          "timestamp": "2026-09-17T07:30:21.218Z"
         }
       ],
       "worklogs": [],
@@ -5505,30 +5567,30 @@
       "summary": "EdgeNexus - Monitoring",
       "description": "Edgenexus MonitoringKafka logger and TCP route (LTM, WAF)Update Kafka logger for Edgenexus LTM and WAF log ingestionSet up TCP route mapping for each categoryEnsure ingested logs are tagged as Edgenexus / LTM or Edgenexus / WAFLog processing pipeline (LTM, WAF)Create a dedicated pipeline for LTM and one for WAFParse Edgenexus appliance syslog, including logs relayed through a forwarderParse load balancer, flightPATH, appliance daemon and application firewall (ModSecurity) logsExtract fields such as source IP, source port, client IP, destination IP, host name, HTTP method, URL, domain, status code, action, rule ID, rule severity, rule phase, matched variable, matched pattern, program, severity and facilityRegister the pipelinesIndex parsed logs into ElasticsearchThreshold playbook (LTM, WAF)Add playbook support for Edgenexus LTM using Source IP, Client IP and Destination IPAdd playbook support for Edgenexus WAF using Source IP and Client IPKibana dashboard (LTM, WAF)Create Edgenexus LTM dashboardCreate Edgenexus WAF dashboardSOC command center and widgets (LTM, WAF)Add Edgenexus to SOC command center navigationAdd Kibana deep-link support for Edgenexus logsAdd natural language search routing for EdgenexusAdd graph / widget rendering supportAdd frontend device selector support for Edgenexus / LTM / WAF",
       "issueType": "Story",
-      "priority": "Medium",
+      "priority": "Highest",
       "storyPoints": null,
       "originalEstimateSec": 86400,
       "timeSpentSec": 0,
       "dueDate": "2026-09-08T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": true,
+      "isMonitoredPriority": false,
       "labels": [],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "QA",
+      "canonicalStatus": "UAT",
       "status": {
-        "name": "3) QA",
-        "canonicalStatus": "QA"
+        "name": "5) UAT - Pending",
+        "canonicalStatus": "UAT"
       },
-      "assigneeName": "Afifa Cheema",
-      "assigneeEmail": "afifa.cheema@blockapt.com",
-      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:55a3ad6b-2993-4481-bd9e-90b050aa342d/876a58d7-443a-4bda-830c-5a3f57e0a857/48",
+      "assigneeName": "Celeste Rush",
+      "assigneeEmail": "celeste.rush@blockapt.com",
+      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-16T11:48:50.864Z",
-      "lastMeaningfulActivityAt": "2026-09-16T11:48:50.864Z",
+      "lastJiraActivityAt": "2026-09-17T12:02:08.387Z",
+      "lastMeaningfulActivityAt": "2026-09-17T12:02:08.387Z",
       "createdAt": "2026-09-03T09:19:08.827Z",
-      "updatedAt": "2026-09-16T11:48:50.864Z",
+      "updatedAt": "2026-09-17T12:02:08.387Z",
       "riskScores": [],
       "comments": [
         {
@@ -5556,10 +5618,10 @@
           "timestamp": "2026-09-16T11:48:14.459Z"
         },
         {
-          "id": "46004",
-          "body": "I’m attaching the raw log files along with the testing screenshots. Please have a look and let me know if everything looks good from your side.\nThanks.",
+          "id": "46054",
+          "body": "I’m attaching the raw log files along with the testing video. Please have a look and let me know if everything looks good from your side.\nThanks.",
           "author": "Afifa Cheema",
-          "timestamp": "2026-09-16T11:48:50.864Z"
+          "timestamp": "2026-09-17T12:01:29.373Z"
         }
       ],
       "worklogs": [],
@@ -5686,27 +5748,27 @@
       "priority": "Medium",
       "storyPoints": null,
       "originalEstimateSec": 86400,
-      "timeSpentSec": 86400,
+      "timeSpentSec": 93600,
       "dueDate": "2026-09-03T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": false,
+      "isMonitoredPriority": true,
       "labels": [],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "UAT",
+      "canonicalStatus": "DEVELOPMENT",
       "status": {
-        "name": "5) UAT",
-        "canonicalStatus": "UAT"
+        "name": "2) Development",
+        "canonicalStatus": "DEVELOPMENT"
       },
       "assigneeName": "Celeste Rush",
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-15T06:48:28.241Z",
-      "lastMeaningfulActivityAt": "2026-09-15T06:48:28.241Z",
+      "lastJiraActivityAt": "2026-09-17T14:25:01.869Z",
+      "lastMeaningfulActivityAt": "2026-09-17T14:25:01.869Z",
       "createdAt": "2025-02-18T11:38:34.579Z",
-      "updatedAt": "2026-09-15T06:48:28.241Z",
+      "updatedAt": "2026-09-17T14:25:01.869Z",
       "riskScores": [],
       "comments": [
         {
@@ -5720,6 +5782,24 @@
           "body": "I have tested it on the develop environment, and it has now been merged into the UAT environment. I have also attached a video for reference. Please test and verify it on your end.",
           "author": "Mamoon Nadeem",
           "timestamp": "2026-09-14T11:08:55.687Z"
+        },
+        {
+          "id": "46008",
+          "body": "- Custom Dashboard loads correctly as described.  In the Executive Dashboard some widgets load fine but others are stuck on ‘Loading’ even after repeated refreshing over a lot of time.  See video.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-09-16T14:58:20.894Z"
+        },
+        {
+          "id": "46049",
+          "body": "Thanks  . This isn't coming from the new widget.\nI'm on  at the moment. I'll review this once that's done and let you know when it's ready to retest.cc",
+          "author": "Waqar Tanveer",
+          "timestamp": "2026-09-17T08:08:56.765Z"
+        },
+        {
+          "id": "46055",
+          "body": "Started R&D on the widgets stuck on Loading. I'll update the card once I have something concrete.cc",
+          "author": "Waqar Tanveer",
+          "timestamp": "2026-09-17T12:58:02.066Z"
         }
       ],
       "worklogs": [],
@@ -5748,7 +5828,7 @@
       "linkedIssueKeys": [],
       "canonicalStatus": "UAT",
       "status": {
-        "name": "5.1) UAT - Fail",
+        "name": "5.4) UAT - Fail",
         "canonicalStatus": "UAT"
       },
       "assigneeName": "Celeste Rush",
@@ -5849,7 +5929,7 @@
       "issueType": "Bug _ DevOps",
       "priority": "Highest",
       "storyPoints": null,
-      "originalEstimateSec": null,
+      "originalEstimateSec": 57600,
       "timeSpentSec": 0,
       "dueDate": null,
       "resolution": null,
@@ -5860,23 +5940,26 @@
       "linkedIssueKeys": [
         "BCSD-551"
       ],
-      "canonicalStatus": "TODO",
+      "canonicalStatus": "DEVELOPMENT",
       "status": {
-        "name": "1) To Do",
-        "canonicalStatus": "TODO"
+        "name": "2) Development",
+        "canonicalStatus": "DEVELOPMENT"
       },
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-15T06:41:52.308Z",
-      "lastMeaningfulActivityAt": "2026-09-15T06:41:52.308Z",
+      "lastJiraActivityAt": "2026-09-16T09:29:51.449Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:29:51.449Z",
       "createdAt": "2026-09-15T06:37:55.191Z",
-      "updatedAt": "2026-09-15T06:41:52.308Z",
+      "updatedAt": "2026-09-16T09:29:51.449Z",
       "riskScores": [],
       "comments": [],
       "worklogs": [],
       "gitCommits": [],
       "pullRequests": [],
       "qaValidations": [],
-      "uatValidations": []
+      "uatValidations": [],
+      "assigneeName": "Talal Ghauri",
+      "assigneeEmail": "talal.ghauri@blockapt.com",
+      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/38050fb1d0b2d0af5e7cb4da803ec8a4?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FTG-0.png"
     },
     {
       "id": "29280",
@@ -7022,37 +7105,65 @@
       "id": "30543",
       "jiraId": "30543",
       "key": "BSB-2831",
-      "summary": "Fortinet Monitoring",
-      "description": "",
+      "summary": "Fortinet Monitoring Bug",
+      "description": "Looked into why one Fortinet port looked like it was creating several indexes.Fixed timestamps for new live log so event time and received time show a full datetime, not just the clock time",
       "issueType": "Bug _ DevOps",
-      "priority": "Medium",
+      "priority": "Highest",
       "storyPoints": null,
-      "originalEstimateSec": null,
-      "timeSpentSec": 0,
-      "dueDate": null,
+      "originalEstimateSec": 57600,
+      "timeSpentSec": 57600,
+      "dueDate": "2026-09-16T00:00:00.000Z",
       "resolution": null,
       "resolvedAt": null,
       "isMonitoredPriority": true,
       "labels": [],
       "components": [],
       "linkedIssueKeys": [],
-      "canonicalStatus": "TODO",
+      "canonicalStatus": "UAT",
       "status": {
-        "name": "1) To Do",
-        "canonicalStatus": "TODO"
+        "name": "5) UAT - Pending",
+        "canonicalStatus": "UAT"
       },
       "reporterName": "Afifa Cheema",
-      "lastJiraActivityAt": "2026-09-16T07:12:10.341Z",
-      "lastMeaningfulActivityAt": "2026-09-16T07:12:10.341Z",
+      "lastJiraActivityAt": "2026-09-17T13:21:16.249Z",
+      "lastMeaningfulActivityAt": "2026-09-17T13:21:16.249Z",
       "createdAt": "2026-09-16T07:11:30.462Z",
-      "updatedAt": "2026-09-16T07:12:10.341Z",
+      "updatedAt": "2026-09-17T13:21:16.249Z",
       "riskScores": [],
-      "comments": [],
+      "comments": [
+        {
+          "id": "46048",
+          "body": "Root cause\nNew Fortinet FortiGate devices were labelled Fortinet FortiGate instead of Fortinet Fortinet, so logs went into a new index. The system was still reading the old index, so dashboards  looked empty.\nAt the same time, each log’s date and time came in two fields, and it saved only the time into created_at,  so discover show no data.\nSolution\nUse both stores: old Fortinet indexes for old devices, new FortiGate indexes for new ones. Combine date and time before saving, and stop overwriting created_at.",
+          "author": "Rana Asad",
+          "timestamp": "2026-09-17T07:51:01.166Z"
+        },
+        {
+          "id": "46050",
+          "body": "I’ve tested this on the UAT server, and everything is working flawlessly from my side. All graphs are displaying data and are properly populated.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-17T08:27:23.858Z"
+        },
+        {
+          "id": "46051",
+          "body": "The fix is merged into elk-master. Please pull the latest, restart the Logger-Indexer service, then remove the old port and add the same port again. That will create the new data view and dashboard, and logs will ingest and display from the correct index.\ncc",
+          "author": "Rana Asad",
+          "timestamp": "2026-09-17T11:18:02.378Z"
+        },
+        {
+          "id": "46053",
+          "body": "I have also attached the video for reference. Please review it and let me know if everything looks correct from your side.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-17T11:58:23.608Z"
+        }
+      ],
       "worklogs": [],
       "gitCommits": [],
       "pullRequests": [],
       "qaValidations": [],
-      "uatValidations": []
+      "uatValidations": [],
+      "assigneeName": "Dulan Dissanayake",
+      "assigneeEmail": "dulan.dissanayake@blockapt.com",
+      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/fbd5a9a8baee4e2bf9fe5ddfd76cd59e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FDD-2.png"
     },
     {
       "id": "30576",
@@ -7068,7 +7179,7 @@
       "dueDate": null,
       "resolution": null,
       "resolvedAt": null,
-      "isMonitoredPriority": true,
+      "isMonitoredPriority": false,
       "labels": [],
       "components": [],
       "linkedIssueKeys": [],
@@ -7119,7 +7230,9 @@
         "Askaris"
       ],
       "components": [],
-      "linkedIssueKeys": [],
+      "linkedIssueKeys": [
+        "BSB-2560"
+      ],
       "canonicalStatus": "UAT",
       "status": {
         "name": "5.5) UAT - Pass",
@@ -7129,10 +7242,10 @@
       "assigneeEmail": "celeste.rush@blockapt.com",
       "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
       "reporterName": "Celeste Rush",
-      "lastJiraActivityAt": "2026-09-16T10:44:42.200Z",
-      "lastMeaningfulActivityAt": "2026-09-16T10:44:42.200Z",
+      "lastJiraActivityAt": "2026-09-17T07:25:17.523Z",
+      "lastMeaningfulActivityAt": "2026-09-17T07:25:17.523Z",
       "createdAt": "2026-07-28T11:17:05.386Z",
-      "updatedAt": "2026-09-16T10:44:42.200Z",
+      "updatedAt": "2026-09-17T07:25:17.523Z",
       "riskScores": [],
       "comments": [
         {
@@ -7158,6 +7271,12 @@
           "body": "Passing UAT\ncc",
           "author": "Celeste Rush",
           "timestamp": "2026-09-16T09:51:31.717Z"
+        },
+        {
+          "id": "46046",
+          "body": "This ticket depends on BSB-2560 and should not be released ahead of it.",
+          "author": "Asad Tanveer",
+          "timestamp": "2026-09-17T07:25:17.435Z"
         }
       ],
       "worklogs": [],
@@ -7309,13 +7428,721 @@
       "pullRequests": [],
       "qaValidations": [],
       "uatValidations": []
+    },
+    {
+      "id": "26590",
+      "jiraId": "26590",
+      "key": "BSB-2560",
+      "summary": "ME - FER - Virus Total Threat Graphs - VT - Active Dynamic Graphs - Remaining Feature for VT - P1",
+      "description": "VT is already integratedAdd the active threat graph for dynamic analysisComplete all the remaining feature for VTThe data that are collected in the Threat Intelligence (IP Threat List) can be used to build connectivity matrix similar to VT",
+      "issueType": "Story",
+      "priority": "High",
+      "storyPoints": null,
+      "originalEstimateSec": 144000,
+      "timeSpentSec": 327600,
+      "dueDate": "2026-05-22T00:00:00.000Z",
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [
+        "BCSD-490",
+        "BSB-2764"
+      ],
+      "canonicalStatus": "UAT",
+      "status": {
+        "name": "5) UAT - Pending",
+        "canonicalStatus": "UAT"
+      },
+      "assigneeName": "Celeste Rush",
+      "assigneeEmail": "celeste.rush@blockapt.com",
+      "assigneeAvatarUrl": "https://secure.gravatar.com/avatar/d04c8d2ddc990035e3839fe816dd285e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FCR-1.png",
+      "reporterName": "Afifa Cheema",
+      "lastJiraActivityAt": "2026-09-17T07:22:21.984Z",
+      "lastMeaningfulActivityAt": "2026-09-17T07:22:21.984Z",
+      "createdAt": "2026-05-15T06:48:05.247Z",
+      "updatedAt": "2026-09-17T07:22:21.984Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "38551",
+          "body": "Moved to priority task work related to the Executive Dashboard",
+          "author": "Asad Tanveer",
+          "timestamp": "2026-05-19T08:35:54.932Z"
+        },
+        {
+          "id": "39199",
+          "body": "Attached is the feature guide covering the two graph features delivered in this ticket. VirusTotal Scan Engine, Reanalyze & Threat Graph, and IP Threat Graph including the Check in VirusTotal flow.",
+          "author": "Asad Tanveer",
+          "timestamp": "2026-06-03T11:08:30.544Z"
+        },
+        {
+          "id": "40415",
+          "body": "I have tested it on UAT and attached a video for reference. Please review it.",
+          "author": "Mamoon Nadeem",
+          "timestamp": "2026-06-23T10:23:34.385Z"
+        },
+        {
+          "id": "41067",
+          "body": "Tested on Elk-Develop\nMissing IP in the Contacted IP information.  The IP is displayed in the VirusTotal Graph as seen below.\n\nPlease correct all text so these are all upper case URL, HTTP, HTTPS, IP, ASN, MD5, SHA256, etc.\nI note that VT is lax when it comes to the correct case!\nThere appears to be information missing in the BA graph that is seen in VT.\nVT\nOther features appear to work fine.\nThanks.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-07-01T15:55:51.088Z"
+        },
+        {
+          "id": "42246",
+          "body": "I have tested it on the develop environment, and it has now been merged into the UAT environment. Please test and verify it on your end.",
+          "author": "Mamoon Nadeem",
+          "timestamp": "2026-07-22T09:22:02.583Z"
+        },
+        {
+          "id": "42589",
+          "body": "The text corrections are confirmed.  Thanks.\n- As discussed in our meeting, I’ve uploaded a video of exploring the Graph in VirusTotal and and example of information one can obtain in depth.  Can we provide similar information in depth?\nThe save/export feature would be useful to the user to download the information and save the graph to retain the forensic data.\nThanks.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-07-28T11:07:06.551Z"
+        },
+        {
+          "id": "44602",
+          "body": "Test steps dedicated to the review comment and video attached, covering exploring the graph in depth (loading more results, expanding any nodes relationships) and saving/exporting it. CC:",
+          "author": "Asad Tanveer",
+          "timestamp": "2026-08-20T13:40:31.983Z"
+        },
+        {
+          "id": "44692",
+          "body": "I have tested it on the develop environment, and it has now been merged into the UAT environment. I have also attached a video for reference. Please test and verify it on your end.",
+          "author": "Mamoon Nadeem",
+          "timestamp": "2026-08-24T10:07:41.664Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "15294",
+      "jiraId": "15294",
+      "key": "BSB-1905",
+      "summary": "Login Protection with SentinelOne - Feature Enhancement - Exclusion list",
+      "description": "Task Description:Current Task: The system currently checks if any suspicious user has logged in by comparing the user's login IP with our defined IP countries within the Global Object.\nProposed Enhancements: We need to be able to add a whitelist/exclusion list manually. These IP’s will be allowed.\nWhen the task executes, it will compare the login IP with the SentinelOne Endpoint IPs, Global Objects, Whitelist, etc.If a malicious IP / Unknown IP is found, the system should:\nLogout the user immediately.Block the user to prevent further logins.If IP is safe according to internal list, S1 list, or exclusion list within BAP, it will be allowed.please update with your wording and map to\nProblem\nSolution\nTest criteria",
+      "issueType": "Story",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": 288000,
+      "timeSpentSec": 79200,
+      "dueDate": "2024-12-16T00:00:00.000Z",
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [
+        "BSB-1665"
+      ],
+      "canonicalStatus": "QA",
+      "status": {
+        "name": "3) QA",
+        "canonicalStatus": "QA"
+      },
+      "assigneeName": "Mamoon Nadeem",
+      "assigneeEmail": "mamoon.nadeem@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:ad244c4b-06f0-4d50-b56f-7ef6c468a65d/8d31c603-e348-41a2-b4f3-600ec790b57d/48",
+      "reporterName": "Adel Nasseri",
+      "lastJiraActivityAt": "2026-09-17T07:00:49.734Z",
+      "lastMeaningfulActivityAt": "2026-09-17T07:00:49.734Z",
+      "createdAt": "2025-03-12T08:50:59.913Z",
+      "updatedAt": "2026-09-17T07:00:49.734Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "21692",
+          "body": "Hi Rana,\nMoving forward before aligning a ticket to developers please run it past me. It is my responsibility to schedule and coordinate the tickets based on BAP requirements. You can do this in our sessions, just let me know the tickets you have created and why they should be prioritised. I can then check and ensure all relevant information is captured and the tickets meets the process. In this case this ticket is missing Parent, Sprint, and no context around why it is important or who requested it.\nFYI",
+          "author": "Adel Nasseri",
+          "timestamp": "2025-03-12T08:51:01.456Z"
+        },
+        {
+          "id": "21693",
+          "body": "Unit Test Cases of threat intelligence for all malicious IPs connecting to the BAP.",
+          "author": "Former user",
+          "timestamp": "2025-03-12T08:51:01.850Z"
+        },
+        {
+          "id": "21694",
+          "body": "Important Note:When selecting the Sentinel One device, the next field will be Select Group. By default, we have selected all groups because the task compares the user's endpoint against the selected groups.\nIf a user is present in one group but not selected, they will be marked as malicious. Therefore, it is mandatory to select all groups to ensure accurate endpoint comparison and avoid false malicious detections.",
+          "author": "Former user",
+          "timestamp": "2025-03-12T08:51:01.945Z"
+        },
+        {
+          "id": "21695",
+          "body": "I have successfully tested the issue on my end. Please proceed with testing it on your side.",
+          "author": "Malik Ahmad",
+          "timestamp": "2025-03-12T08:51:02.074Z"
+        },
+        {
+          "id": "21696",
+          "body": "please provide a ideo as per standard process",
+          "author": "Adel Nasseri",
+          "timestamp": "2025-03-12T08:51:02.150Z"
+        },
+        {
+          "id": "21697",
+          "body": "I have attached two videos: one demonstrating the task execution and the other showing the device logout",
+          "author": "Malik Ahmad",
+          "timestamp": "2025-03-12T08:51:02.222Z"
+        },
+        {
+          "id": "21698",
+          "body": "- This isn’t workable.  My IP to my vm is internal and when I ran the task using S1, I got blocked.  Somehow this needs to be worked out so internal IPs are excluded.  S1 will only see my external IP.\nNeeds further discussion.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2025-03-12T08:51:02.291Z"
+        },
+        {
+          "id": "21758",
+          "body": "- Added the wording for alternate SentinelOne option  for the task so any IP checks should be included with this solution.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2025-03-13T08:24:20.120Z"
+        },
+        {
+          "id": "45441",
+          "body": "This card has been merged into ELK Staging since 31 August 2026.\nThe implementation is complete, but unit testing is currently on hold while we wait for a validated list of IPs for the whitelist/exclusion list.\nRunning the task with the current configuration could cause SentinelOne to block valid users whose IPs should be included in the whitelist, potentially preventing legitimate users from accessing the system.\nOnce the valid IP list is provided, we can configure the exclusions and safely proceed with unit testing of the suspicious login detection and blocking flow.CC",
+          "author": "Waqar Tanveer",
+          "timestamp": "2026-09-10T13:32:59.484Z"
+        },
+        {
+          "id": "46007",
+          "body": "Added a manual IP exclusion list to the Login Protection task. Admins can now add specific IPs that should never be blocked or logged out, even if they'd otherwise fail the check — internal/VM IPs are handled the same way, just add them to this list.\nAlso fixed: an IP that had been manually unblocked before used to stay exempt forever. Now it gets checked normally again and can be re-blocked if it starts failing.\nBuilds on the original logic from .\nPushed to develop, not yet through a formal QA pass.moving to the more Priority card  CC",
+          "author": "Waqar Tanveer",
+          "timestamp": "2026-09-16T14:07:43.268Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "29646",
+      "jiraId": "29646",
+      "key": "BSB-2774",
+      "summary": "Ansible Script - ZooKeeper",
+      "description": "The current ZooKeeper installation uses the default /tmp location for storing its data. When an external or mounted disk is used, this can cause the ZooKeeper data to be stored in a different location, which may result in a cluster ID mismatch between ZooKeeper and Kafka.\nThe installation script should be updated to properly handle ZooKeeper data directories for clients using external or mounted disks.The updated script should support both the default storage configuration and installations using external or mounted disks without requiring manual intervention.",
+      "issueType": "Story",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": 288000,
+      "timeSpentSec": 331200,
+      "dueDate": "2026-08-31T00:00:00.000Z",
+      "resolution": "Done",
+      "resolvedAt": "2026-09-16T07:23:15.013Z",
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "DONE",
+      "status": {
+        "name": "7) Done",
+        "canonicalStatus": "DONE"
+      },
+      "assigneeName": "Afifa Cheema",
+      "assigneeEmail": "afifa.cheema@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:55a3ad6b-2993-4481-bd9e-90b050aa342d/876a58d7-443a-4bda-830c-5a3f57e0a857/48",
+      "reporterName": "Afifa Cheema",
+      "lastJiraActivityAt": "2026-09-16T14:32:12.743Z",
+      "lastMeaningfulActivityAt": "2026-09-16T14:32:12.743Z",
+      "createdAt": "2026-08-18T08:51:59.227Z",
+      "updatedAt": "2026-09-16T14:32:12.743Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "45146",
+          "body": "Updated the folder path configuration to prevent the data from being stored under /tmp, which was causing the Cluster ID synchronization issue between Kafka and ZooKeeper.\nBoth issues have now been resolved, and the updated code has been pushed up to the ELK master branch for the new deployments. The changes have also been tested successfully, and the patch is provided here for deployment on existing servers. CC:",
+          "author": "Malik Ahmad",
+          "timestamp": "2026-09-07T08:03:26.072Z"
+        },
+        {
+          "id": "45891",
+          "body": "I’ve tested this multiple times, and everything looks good on my side. Therefore, I’m closing the card.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-16T07:23:10.147Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "27903",
+      "jiraId": "27903",
+      "key": "BSB-2655",
+      "summary": "Ansible Script - Pre-Requisites - Deployment Script",
+      "description": "To prevent deployment failures caused by insufficient server resources, the Ansible deployment process should perform a pre-installation validation of the target VM against the defined baseline requirements.\nBefore any installation tasks are executed, the playbook must verify that the target server meets the minimum hardware and operating system requirements. If any requirement is not met, the deployment should stop immediately and provide a clear validation error indicating which prerequisite failed.\nInitial Validation Criteria:\nRequirementMinimum ValueRAM16 GBCPU Cores6 CoresDisk Space150 GBOperating SystemUbuntu 24.04 LTS (Noble)",
+      "issueType": "Story",
+      "priority": "High",
+      "storyPoints": null,
+      "originalEstimateSec": 86400,
+      "timeSpentSec": 507600,
+      "dueDate": "2026-06-19T00:00:00.000Z",
+      "resolution": "Done",
+      "resolvedAt": "2026-09-16T07:25:20.179Z",
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "DONE",
+      "status": {
+        "name": "7) Done",
+        "canonicalStatus": "DONE"
+      },
+      "assigneeName": "Afifa Cheema",
+      "assigneeEmail": "afifa.cheema@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:55a3ad6b-2993-4481-bd9e-90b050aa342d/876a58d7-443a-4bda-830c-5a3f57e0a857/48",
+      "reporterName": "Afifa Cheema",
+      "lastJiraActivityAt": "2026-09-16T14:30:16.218Z",
+      "lastMeaningfulActivityAt": "2026-09-16T14:30:16.218Z",
+      "createdAt": "2026-06-15T10:38:19.270Z",
+      "updatedAt": "2026-09-16T14:30:16.218Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "44828",
+          "body": ", I’ve attached the screenshot. We have added the default specs. Please review them and let us know if everything looks okay so we can proceed with the merge. If any changes are needed, please let me know.Thanks",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-08-31T11:31:46.922Z"
+        },
+        {
+          "id": "45893",
+          "body": "I’ve tested this multiple times, and everything looks good on my side. Therefore, I’m closing the card.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-16T07:25:38.691Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "27525",
+      "jiraId": "27525",
+      "key": "BSB-2607",
+      "summary": "Ansible script failed while installation",
+      "description": "Installation failed with below errorTASK [elk : Create Elasticsearch index with mappings] *******************************************************************************************************fatal: [192.168.0.144]: FAILED! => {\"changed\": false, \"content\": \"\", \"elapsed\": 30, \"msg\": \"Status code was -1 and not [200, 201]: Connection failure: timed out\", \"redirected\": false, \"status\": -1, \"url\": \"http://localhost:9200/icyber_logger\"}",
+      "issueType": "Bug _ DevOps",
+      "priority": "Highest",
+      "storyPoints": null,
+      "originalEstimateSec": 28800,
+      "timeSpentSec": 547200,
+      "dueDate": "2026-06-10T00:00:00.000Z",
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "DEVELOPMENT",
+      "status": {
+        "name": "5.1) UAT - In Progress",
+        "canonicalStatus": "DEVELOPMENT"
+      },
+      "assigneeName": "Afifa Cheema",
+      "assigneeEmail": "afifa.cheema@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:55a3ad6b-2993-4481-bd9e-90b050aa342d/876a58d7-443a-4bda-830c-5a3f57e0a857/48",
+      "reporterName": "Dulan Dissanayake",
+      "lastJiraActivityAt": "2026-09-16T13:52:11.989Z",
+      "lastMeaningfulActivityAt": "2026-09-16T13:52:11.989Z",
+      "createdAt": "2026-06-09T06:11:21.802Z",
+      "updatedAt": "2026-09-16T13:52:11.989Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "39437",
+          "body": "Which branch you are using for the Installation?",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-06-09T06:13:52.852Z"
+        },
+        {
+          "id": "39744",
+          "body": "The installation failure was caused by insufficient VM resources. To improve stability and ensure successful deployments, we should define baseline hardware requirements for production VMs. These requirements should be documented separately for standard BAP deployments and BAP deployments that include the ELK stack, as each has different resource demands. Once the baseline requirements are agreed upon, we can implement them across the environmentsCC:",
+          "author": "Malik Ahmad",
+          "timestamp": "2026-06-12T10:42:45.117Z"
+        },
+        {
+          "id": "39846",
+          "body": "There are multiple failure cases on the script which is not tested properly see the attached screenshots.\nTesting on different environments cloud and different virtualisation platforms (AWS, Azure, GCP, VMWare, HyperV etc …)Installation of dependancies will fail due to default source added is using http (Some customer environments will not allow http outbound)- Python role “Ensure required system packages for Python are installed” task failed see the attachment- Avoid HTTP download resets from Ubuntu mirror/CDNNot available of the retry mechanism in above failure cases.To make it success installation what I had to do do go through role by role and if there is any failure in a role go deeper to individual task and install required dependancies.\n\ncc",
+          "author": "Dulan Dissanayake",
+          "timestamp": "2026-06-15T17:31:59.577Z"
+        },
+        {
+          "id": "42079",
+          "body": "I tested the script; it works flawlessly. Please test it and share your thoughts. Thanks",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-07-17T07:57:44.540Z"
+        },
+        {
+          "id": "42247",
+          "body": "- Please confirm all your tested environments other than GCP. i.e. Azure, AWS, Oracle, Hyper-V, VMWare, etc.\nThanks.\ncc",
+          "author": "Celeste Rush",
+          "timestamp": "2026-07-22T09:46:35.499Z"
+        },
+        {
+          "id": "42250",
+          "body": ", I have only tested on GCP and Proxmox. Thanks",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-07-22T10:01:47.883Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30616",
+      "jiraId": "30616",
+      "key": "BSB-2840",
+      "summary": "Add rollback/recovery mechanism for failed staging deploys",
+      "description": "Gap: no rollback or recovery mechanism exists anywhere in the pipeline chain. blockapt_ansible's deploy-step (the ansible-playbook run against 34.100.175.145) has no failure handling beyond stopping - a failed mid-deploy run can leave staging in a broken intermediate state with no automated way back.\nTask: design and implement a rollback mechanism - options to evaluate: tagging/backing up the previous release before deploying and restoring it on playbook failure, a health-check step post-deploy that triggers auto-rollback on failure, or at minimum a documented manual rollback runbook if full automation isn't feasible in this pass. This is an explicit acceptance criterion on the parent card.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:42:05.515Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:42:05.515Z",
+      "createdAt": "2026-09-16T09:42:05.325Z",
+      "updatedAt": "2026-09-16T09:42:05.515Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30615",
+      "jiraId": "30615",
+      "key": "BSB-2839",
+      "summary": "Add pre-deploy Cypress smoke gate to blockaptv9 beta pipeline",
+      "description": "Gap: old/docs/ci-cd/README.md item 2 describes a pre-deploy smoke gate - building an ephemeral docker-compose stack from the push's own code and running 8 @smoke-tagged Cypress specs against it before anything deploys. This is documented as already automated but does not exist as a step in the actual blockaptv9/bitbucket-pipelines.yml.\nTask: implement this step (referencing scripts/ci-cypress-smoke.sh if it already exists, per the doc) so a regression is caught before triggering the staging deploy, not just after. Depends on / should land alongside the deploy-gate subtask so ordering is: CI checks -> pre-deploy smoke gate -> trigger staging deploy.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:42:00.664Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:42:00.664Z",
+      "createdAt": "2026-09-16T09:42:00.512Z",
+      "updatedAt": "2026-09-16T09:42:00.664Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30614",
+      "jiraId": "30614",
+      "key": "BSB-2838",
+      "summary": "Gate staging deploy on blockaptv9 CI passing (fix decoupled trigger)",
+      "description": "Gap: old/docs/ci-cd/README.md documents that a green push to blockaptv9's beta should trigger blockapt_ansible's deploy-staging custom pipeline via the REST API (using a BB_DEPLOY_TOKEN). That step does not exist in the actual blockaptv9/bitbucket-pipelines.yml (confirmed via grep for deploy-staging/BB_DEPLOY_TOKEN/ansible - no matches outside comments).\nCurrent behavior: the only thing that actually deploys to staging is a push to blockapt_ansible's own beta branch (branches: beta in its pipeline), completely independent of whether blockaptv9's CI passed or failed.\nTask: add the trigger step to blockaptv9's beta pipeline (only reached after CI checks pass) that calls blockapt_ansible's deploy-staging custom pipeline via the Bitbucket REST API, per the one-time setup already documented in old/docs/ci-cd/README.md setup step 2 (BB_DEPLOY_TOKEN). Verify with scripts/verify-cicd.sh.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:41:55.316Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:41:55.316Z",
+      "createdAt": "2026-09-16T09:41:55.130Z",
+      "updatedAt": "2026-09-16T09:41:55.316Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30613",
+      "jiraId": "30613",
+      "key": "BSB-2837",
+      "summary": "Fix Nessus scheduled task not executing and report data not populating in SME portal",
+      "description": "Scheduled Nessus report task (set to run quarterly) shows a notification that it started but never actually runs; restarting Server Controls does not help. Manual execution of the same task works but no Nessus data populates in the SME portal (including the manually-created report), even though scan data is still present in the Nessus device. Clicking Reports also throws an error. Reported by Celeste Rush 2026-09-15.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:03:28.390Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:03:28.390Z",
+      "createdAt": "2026-09-16T09:03:28.240Z",
+      "updatedAt": "2026-09-16T09:03:28.390Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30612",
+      "jiraId": "30612",
+      "key": "BSB-2836",
+      "summary": "Fix Vulnerability Management error when selecting \"last 30 days\" filter",
+      "description": "Selecting the last 30 days range in Vulnerability Management produces an error. Reported by Celeste Rush 2026-09-15 with a screenshot attached to the ticket comment; described as a consistent/reproducible error.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:03:23.974Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:03:23.974Z",
+      "createdAt": "2026-09-16T09:03:23.837Z",
+      "updatedAt": "2026-09-16T09:03:23.974Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30611",
+      "jiraId": "30611",
+      "key": "BSB-2835",
+      "summary": "Fix Web Security error when scrolling Domain list in SME portal",
+      "description": "An error appears in Web Security when scrolling down the Domain list. Reported by Celeste Rush 2026-09-15 with a screenshot attached to the ticket comment.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:03:21.351Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:03:21.351Z",
+      "createdAt": "2026-09-16T09:03:21.254Z",
+      "updatedAt": "2026-09-16T09:03:21.351Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30610",
+      "jiraId": "30610",
+      "key": "BSB-2834",
+      "summary": "Fix Endpoint Protection widgets stuck on \"Loading\" in SME portal",
+      "description": "Most Endpoint Security widgets remain stuck showing \"Loading\" (only 4 show graphs); refreshing the page does not resolve it. A prior related widget-loading issue was reported fixed, but this recurrence was reported again by Celeste Rush on 2026-09-15.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:03:18.970Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:03:18.970Z",
+      "createdAt": "2026-09-16T09:03:18.820Z",
+      "updatedAt": "2026-09-16T09:03:18.970Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "30609",
+      "jiraId": "30609",
+      "key": "BSB-2833",
+      "summary": "Fix Splunk install failure: DNS resolution error downloading DigiCert cert on Ansible controller",
+      "description": "Splunk install task fails at \"Download DigiCert Global Root G2 certificate (controller-side)\" with \"Temporary failure in name resolution\" for www.digicert.com. This runs delegate_to: localhost on the Ansible control machine, not the target host. Install stops and ntop/subsequent steps never run. Reported by Celeste Rush 2026-09-14; workaround (manual cert download) suggested but not yet confirmed fixed.",
+      "issueType": "Sub-task",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": null,
+      "timeSpentSec": 0,
+      "dueDate": null,
+      "resolution": null,
+      "resolvedAt": null,
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "TODO",
+      "status": {
+        "name": "1) To Do",
+        "canonicalStatus": "TODO"
+      },
+      "reporterName": "Nabeel Qadri",
+      "lastJiraActivityAt": "2026-09-16T09:03:16.303Z",
+      "lastMeaningfulActivityAt": "2026-09-16T09:03:16.303Z",
+      "createdAt": "2026-09-16T09:03:16.094Z",
+      "updatedAt": "2026-09-16T09:03:16.303Z",
+      "riskScores": [],
+      "comments": [],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
+    },
+    {
+      "id": "29647",
+      "jiraId": "29647",
+      "key": "BSB-2775",
+      "summary": "Kibana - Artifact",
+      "description": "The current Kibana installation process takes time for  overall system installation. To improve the installation process, the Kibana dashboard should be prepared as a pre-built artifact that can be used during the system installation.\nThe installation process should use the pre-built Kibana artifact instead of building or installing Kibana from scratch. Once the artifact is available, it should be extracted to the required location and all necessary Kibana configurations should be applied.\nThe existing Ansible installation scripts should also be updated to support this artifact-based installation approach. The Ansible tasks should handle the artifact retrieval, extraction, required file permissions, configuration changes, and Kibana service setup/startup.\nThe complete installation flow should be tested to ensure that Kibana is installed and configured correctly using the artifact and that the overall system installation time is reduced.",
+      "issueType": "Story",
+      "priority": "Medium",
+      "storyPoints": null,
+      "originalEstimateSec": 288000,
+      "timeSpentSec": 158400,
+      "dueDate": "2026-08-28T00:00:00.000Z",
+      "resolution": "Done",
+      "resolvedAt": "2026-09-16T07:23:50.868Z",
+      "isMonitoredPriority": false,
+      "labels": [],
+      "components": [],
+      "linkedIssueKeys": [],
+      "canonicalStatus": "DONE",
+      "status": {
+        "name": "7) Done",
+        "canonicalStatus": "DONE"
+      },
+      "assigneeName": "Afifa Cheema",
+      "assigneeEmail": "afifa.cheema@blockapt.com",
+      "assigneeAvatarUrl": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:55a3ad6b-2993-4481-bd9e-90b050aa342d/876a58d7-443a-4bda-830c-5a3f57e0a857/48",
+      "reporterName": "Afifa Cheema",
+      "lastJiraActivityAt": "2026-09-16T07:24:15.252Z",
+      "lastMeaningfulActivityAt": "2026-09-16T07:24:15.252Z",
+      "createdAt": "2026-08-18T08:52:14.023Z",
+      "updatedAt": "2026-09-16T07:24:15.252Z",
+      "riskScores": [],
+      "comments": [
+        {
+          "id": "44728",
+          "body": "Now the Kibana artifact from Bitbucket Downloads (retry-enabled, atomic write) instead of  building the source from scratch. The shell script then takes over exactly as before — extracting the artifact and running the same Elasticsearch token, kibana.yml, and systemd configuration steps it always did. No change to the install script's logic or existing steps; only the slow build portion has been replaced with a direct artifact fetch.CC:",
+          "author": "Malik Ahmad",
+          "timestamp": "2026-08-25T11:52:33.699Z"
+        },
+        {
+          "id": "45892",
+          "body": "I’ve tested this multiple times, and everything looks good on my side. Therefore, I’m closing the card.\nThanks.",
+          "author": "Afifa Cheema",
+          "timestamp": "2026-09-16T07:23:46.177Z"
+        }
+      ],
+      "worklogs": [],
+      "gitCommits": [],
+      "pullRequests": [],
+      "qaValidations": [],
+      "uatValidations": []
     }
   ],
-  "activeSprint": {
-    "id": "654",
-    "name": "v8.8.0",
-    "state": "active",
-    "goal": ""
-  },
-  "lastSyncAt": "2026-09-16T07:19:03.048Z"
+  "activeSprint": null,
+  "lastSyncAt": "2026-09-18T07:00:11.221Z"
 }
